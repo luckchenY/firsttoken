@@ -83,11 +83,20 @@ def main():
     num_prompts = len(df)
 
     # 3. Build chat-templated prompts
+    #    Data format: "prompt" column = list of message dicts [{"role": ..., "content": ...}]
+    def parse_messages(val):
+        if isinstance(val, list):
+            return val
+        if isinstance(val, str):
+            import ast
+            return ast.literal_eval(val)
+        return list(val)
+
     prompts_text = []
     ground_truths = []
     data_sources = []
     for _, row in df.iterrows():
-        messages = [{"role": "user", "content": row["question"]}]
+        messages = parse_messages(row["prompt"])
         text = tokenizer.apply_chat_template(
             messages, tokenize=False, add_generation_prompt=True,
         )
