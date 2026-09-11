@@ -1,0 +1,2 @@
+- name: forced_first_token_agent
+  _target_: examples.grpo_trainer.forced_first_token_agent_loop.ForcedFirstTokenAgentLoop
