@@ -41,10 +41,15 @@ from vllm import LLM, SamplingParams, TokensPrompt
 from transformers import AutoTokenizer
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, os.path.dirname(__file__))
 from verl.utils.reward_score import default_compute_score
+from mmlu_pro_reward import compute_score_mmlu_pro
 
 
 def compute_score(response, data_source, ground_truth):
+    # MMLU-Pro uses custom reward
+    if "MMLU-Pro" in data_source or "mmlu" in data_source.lower():
+        return compute_score_mmlu_pro(response, ground_truth)
     try:
         score = default_compute_score(
             data_source=data_source,

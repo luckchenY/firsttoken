@@ -150,7 +150,7 @@ cd /data/chenyang2/verl
 
 python examples/grpo_trainer/train_router.py \
     --model /data/chenyang2/Qwen3-8B \
-    --data /data/chenyang2/router_data.pt \
+    --data /data/chenyang2/router_data_batches/batch_0000.pt \
     --output /data/chenyang2/router_weights.pt \
     --epochs 50 \
     --lr 1e-3 \
