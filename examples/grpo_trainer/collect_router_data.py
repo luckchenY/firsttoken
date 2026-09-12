@@ -47,8 +47,8 @@ from mmlu_pro_reward import compute_score_mmlu_pro
 
 
 def compute_score(response, data_source, ground_truth):
-    # MMLU-Pro uses custom reward
-    if "MMLU-Pro" in data_source or "mmlu" in data_source.lower():
+    # MMLU-Pro and GPQA use custom multiple-choice reward
+    if "MMLU-Pro" in data_source or "mmlu" in data_source.lower() or "gpqa" in data_source.lower():
         return compute_score_mmlu_pro(response, ground_truth)
     try:
         score = default_compute_score(
