@@ -45,48 +45,17 @@ huggingface-cli download Qwen/Qwen3-8B --local-dir /data/chenyang2/Qwen3-8B
 
 ### 1.2 下载 GSM8K + MATH 数据集
 
+verl 自带数据预处理脚本，在 `examples/data_preprocess/` 目录下：
+
 ```bash
-mkdir -p ~/data/gsm8k ~/data/math
+cd /data/chenyang2/verl
+export HF_ENDPOINT=https://hf-mirror.com
 
 # GSM8K (1319 test, 7473 train)
-python -c "
-from datasets import load_dataset
-import pandas as pd
+python examples/data_preprocess/gsm8k.py --local_save_dir ~/data/gsm8k
 
-# GSM8K
-ds = load_dataset('openai/gsm8k')
-for split in ['train', 'test']:
-    rows = []
-    for item in ds[split]:
-        rows.append({
-            'data_source': 'openai/gsm8k',
-            'prompt': [{'role': 'user', 'content': item['question']}],
-            'ability': 'math',
-            'reward_model': {'style': 'rule', 'ground_truth': item['answer'].split('#### ')[-1].strip()},
-            'extra_info': {'split': split, 'index': len(rows), 'answer': item['answer'], 'question': item['question']},
-        })
-    df = pd.DataFrame(rows)
-    df.to_parquet(f'~/data/gsm8k/{split}.parquet')
-    print(f'GSM8K {split}: {len(df)} rows')
-
-# MATH
-ds2 = load_dataset('DigitalLearningGmbH/MATH-lighteval')
-for split in ['train', 'test']:
-    rows = []
-    for i, item in enumerate(ds2[split]):
-        rows.append({
-            'data_source': 'DigitalLearningGmbH/MATH-lighteval',
-            'prompt': [{'role': 'user', 'content': item['problem']}],
-            'ability': 'math',
-            'reward_model': {'style': 'rule', 'ground_truth': item['solution'].split('\\\\boxed{')[-1].rstrip('}') if '\\\\boxed{' in item['solution'] else ''},
-            'extra_info': {'split': split, 'index': i},
-            'level': item.get('level', ''),
-            'type': item.get('type', ''),
-        })
-    df = pd.DataFrame(rows)
-    df.to_parquet(f'~/data/math/{split}.parquet')
-    print(f'MATH {split}: {len(df)} rows')
-"
+# MATH (5000 test, 7500 train)
+python examples/data_preprocess/math_dataset.py --local_save_dir ~/data/math
 ```
 
 ### 1.3 验证数据
