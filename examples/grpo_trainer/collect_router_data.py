@@ -232,6 +232,9 @@ def main():
                         help="Prompts per batch (0 = no batching, single file)")
     parser.add_argument("--batch-start", type=int, default=0,
                         help="Start from this batch index (for resume)")
+    parser.add_argument("--batch-end", type=int, default=-1,
+                        help="Stop after this batch index (-1 = run to end). "
+                             "e.g. --batch-start 2 --batch-end 2 runs only batch 2")
 
     # Merge mode
     parser.add_argument("--merge", action="store_true",
@@ -279,12 +282,14 @@ def main():
     if use_batch:
         os.makedirs(args.save_dir, exist_ok=True)
         num_batches = (total_prompts + args.batch_size - 1) // args.batch_size
+        batch_end = num_batches if args.batch_end < 0 else args.batch_end + 1
         print(f"Batch mode: {num_batches} batches x {args.batch_size} prompts")
         print(f"  Save dir: {args.save_dir}")
-        print(f"  Start from batch: {args.batch_start}")
+        print(f"  Running batches: {args.batch_start}..{batch_end - 1}")
     else:
         num_batches = 1
         args.batch_size = total_prompts
+        batch_end = 1
         print(f"Single-file mode: {total_prompts} prompts in one batch")
 
     # 4. Load vLLM model (once)
@@ -302,7 +307,7 @@ def main():
 
     # 5. Process each batch
     all_reward_matrices = []
-    for batch_idx in range(args.batch_start, num_batches):
+    for batch_idx in range(args.batch_start, batch_end):
         start = batch_idx * args.batch_size
         end = min(start + args.batch_size, total_prompts)
         batch_prompts = prompts_text[start:end]
