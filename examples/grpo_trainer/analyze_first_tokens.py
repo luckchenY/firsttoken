@@ -32,7 +32,7 @@ def parse_messages(val):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="Qwen/Qwen3-8B")
+    parser.add_argument("--model", default="/data/chenyang2/Qwen3-8B")
     parser.add_argument("--data", nargs="+", required=True)
     parser.add_argument("--num-prompts", type=int, default=500)
     parser.add_argument("--top-k", type=int, default=8)
