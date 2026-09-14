@@ -9,13 +9,13 @@ Two modes:
 
 Usage (fast mode, recommended):
   python eval_router.py \
-      --model /data/chenyang2/Qwen3-8B \
+      --model /workspace/Qwen3-8B \
       --router /data/chenyang2/router_weights.pt \
       --data /data/chenyang2/router_data_test.pt
 
 Usage (generation mode):
   python eval_router.py \
-      --model /data/chenyang2/Qwen3-8B \
+      --model /workspace/Qwen3-8B \
       --router /data/chenyang2/router_weights.pt \
       --data ~/data/gsm8k/test.parquet ~/data/math/test.parquet \
       --num-prompts 200 --generate \
@@ -176,6 +176,76 @@ def eval_generate_mode(args, device):
         _phase2_generate(args, device)
 
 
+def _load_pt_or_parquet(args):
+    """Load prompts from .pt file (already chat-templated) or parquet files.
+
+    Returns: (prompts_text, ground_truths, data_sources, extra_infos)
+    """
+    import json as _json
+
+    # .pt file: already chat-templated, has prompts_text/ground_truths/data_sources
+    if len(args.data) == 1 and args.data[0].endswith(".pt"):
+        print(f"Loading .pt file: {args.data[0]}")
+        d = torch.load(args.data[0], weights_only=False)
+        prompts_text = list(d["prompts_text"])
+        ground_truths = list(d["ground_truths"])
+        data_sources = list(d["data_sources"])
+        # extra_infos may be JSON strings (from extract-only) or dicts or absent
+        extra_infos = d.get("extra_infos", [None] * len(prompts_text))
+        extra_infos = [
+            (_json.loads(e) if isinstance(e, str) else e)
+            for e in extra_infos
+        ]
+        # subsample
+        if args.num_prompts > 0 and len(prompts_text) > args.num_prompts:
+            import random
+            rng = random.Random(42)
+            idxs = rng.sample(range(len(prompts_text)), args.num_prompts)
+            idxs.sort()
+            prompts_text = [prompts_text[i] for i in idxs]
+            ground_truths = [ground_truths[i] for i in idxs]
+            data_sources = [data_sources[i] for i in idxs]
+            extra_infos = [extra_infos[i] for i in idxs]
+        return prompts_text, ground_truths, data_sources, extra_infos
+
+    # parquet files: apply chat template
+    dfs = [pd.read_parquet(p) for p in args.data]
+    df = pd.concat(dfs, ignore_index=True)
+    if args.num_prompts > 0 and len(df) > args.num_prompts:
+        df = df.sample(n=args.num_prompts, random_state=42)
+
+    def parse_messages(val):
+        if isinstance(val, list):
+            return val
+        if isinstance(val, str):
+            import ast
+            return ast.literal_eval(val)
+        return list(val)
+
+    def _maybe_json(v):
+        if isinstance(v, str):
+            try:
+                return _json.loads(v)
+            except Exception:
+                return None
+        return v
+
+    tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
+
+    prompts_text, ground_truths, data_sources, extra_infos = [], [], [], []
+    for _, row in df.iterrows():
+        messages = parse_messages(row["prompt"])
+        text = tokenizer.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=True)
+        prompts_text.append(text)
+        rm = _maybe_json(row.get("reward_model", {}))
+        ground_truths.append(rm.get("ground_truth", "") if isinstance(rm, dict) else "")
+        data_sources.append(row.get("data_source", ""))
+        ei = _maybe_json(row.get("extra_info", None))
+        extra_infos.append(ei if isinstance(ei, dict) else None)
+    return prompts_text, ground_truths, data_sources, extra_infos
+
+
 def _phase1_select(args, device):
     """Phase 1: Extract hidden states, run router, save selected tokens."""
     from train_router import RouterMLP
@@ -186,36 +256,13 @@ def _phase1_select(args, device):
     router, forced_token_ids, config = load_router(args.router, device)
     K = len(forced_token_ids)
 
-    # Load data
-    dfs = [pd.read_parquet(p) for p in args.data]
-    df = pd.concat(dfs, ignore_index=True)
-    if args.num_prompts > 0 and len(df) > args.num_prompts:
-        df = df.sample(n=args.num_prompts, random_state=42)
-    print(f"Test prompts: {len(df)}")
-
-    def parse_messages(val):
-        if isinstance(val, list):
-            return val
-        if isinstance(val, str):
-            import ast
-            return ast.literal_eval(val)
-        return list(val)
+    # Load data (.pt or parquet)
+    prompts_text, ground_truths, data_sources, extra_infos = _load_pt_or_parquet(args)
+    print(f"Test prompts: {len(prompts_text)}")
 
     tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
-
-    prompts_text = []
-    ground_truths = []
-    data_sources = []
-    for _, row in df.iterrows():
-        messages = parse_messages(row["prompt"])
-        text = tokenizer.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True)
-        prompts_text.append(text)
-        rm = row.get("reward_model", {})
-        ground_truths.append(rm.get("ground_truth", "") if isinstance(rm, dict) else "")
-        data_sources.append(row.get("data_source", ""))
 
     # Extract hidden states with HF model
     print(f"\nLoading HF model for hidden state extraction ...")
@@ -256,6 +303,7 @@ def _phase1_select(args, device):
         "prompts_text": prompts_text,
         "ground_truths": ground_truths,
         "data_sources": data_sources,
+        "extra_infos": extra_infos,
         "selected_tokens": selected_tokens,
         "random_tokens": random_tokens,
         "forced_token_ids": forced_token_ids,
@@ -270,19 +318,9 @@ def _phase1_select(args, device):
 
 def _phase2_generate(args, device):
     """Phase 2: Load vLLM, generate with forced tokens, score, report."""
-    from verl.utils.reward_score import default_compute_score
-
-    def compute_score(response, data_source, ground_truth):
-        # MMLU-Pro and GPQA use custom multiple-choice reward
-        if "MMLU-Pro" in data_source or "mmlu" in data_source.lower() or "gpqa" in data_source.lower():
-            return compute_score_mmlu_pro(response, ground_truth)
-        try:
-            score = default_compute_score(
-                data_source=data_source, solution_str=response,
-                ground_truth=ground_truth)
-            return float(score) if score is not None else 0.0
-        except Exception:
-            return 0.0
+    # Reuse the exact reward dispatch from collect_router_data.py so that
+    # ARC-Challenge / LogiQA2.0 (MC letter) and DROP (span) are scored correctly.
+    from collect_router_data import compute_score as _compute_score_dispatch
 
     print(f"\n=== Phase 2: vLLM generation + scoring ===")
 
@@ -291,6 +329,7 @@ def _phase2_generate(args, device):
     prompts_text = data["prompts_text"]
     ground_truths = data["ground_truths"]
     data_sources = data["data_sources"]
+    extra_infos = data.get("extra_infos", [None] * len(prompts_text))
     selected_tokens = data["selected_tokens"]
     random_tokens = data.get("random_tokens", None)
     forced_token_ids = data["forced_token_ids"]
@@ -342,24 +381,37 @@ def _phase2_generate(args, device):
         temperature=args.temperature, top_p=args.top_p, max_tokens=args.max_tokens)
     outputs_normal = llm.generate(prompts_text, sampling_params=sp_normal)
 
-    # Score
+    # Score (per-data-source breakdown)
     router_correct = 0
     random_correct = 0
     normal_correct = 0
+    from collections import defaultdict
+    per_ds = defaultdict(lambda: {"router": 0, "random": 0, "normal": 0, "n": 0})
     for i in range(N):
+        ei = extra_infos[i] if i < len(extra_infos) else None
+        ds = data_sources[i]
+        gt = ground_truths[i]
         # Router-forced
         resp = outputs_router[i].outputs[0].text
-        if compute_score(resp, data_sources[i], ground_truths[i]) > 0:
+        r_ok = _compute_score_dispatch(resp, ds, gt, extra_info=ei) > 0
+        if r_ok:
             router_correct += 1
         # Random-forced
+        rand_ok = False
         if outputs_random is not None:
             resp_r = outputs_random[i].outputs[0].text
-            if compute_score(resp_r, data_sources[i], ground_truths[i]) > 0:
+            rand_ok = _compute_score_dispatch(resp_r, ds, gt, extra_info=ei) > 0
+            if rand_ok:
                 random_correct += 1
         # Normal
         resp_n = outputs_normal[i].outputs[0].text
-        if compute_score(resp_n, data_sources[i], ground_truths[i]) > 0:
+        n_ok = _compute_score_dispatch(resp_n, ds, gt, extra_info=ei) > 0
+        if n_ok:
             normal_correct += 1
+        per_ds[ds]["router"] += int(r_ok)
+        per_ds[ds]["random"] += int(rand_ok)
+        per_ds[ds]["normal"] += int(n_ok)
+        per_ds[ds]["n"] += 1
 
     print(f"\n{'='*70}")
     print(f"RESULTS (N={N} prompts)")
@@ -375,13 +427,22 @@ def _phase2_generate(args, device):
         print(f"  Random vs Normal:   +{(random_correct - normal_correct)/N:.4f}")
     print(f"{'='*70}")
 
+    # Per-data-source breakdown
+    print(f"\nPer-data-source breakdown:")
+    print(f"  {'data_source':42} {'n':>4} {'normal':>7} {'random':>7} {'router':>7}")
+    for ds in sorted(per_ds.keys()):
+        s = per_ds[ds]
+        n = s["n"]
+        print(f"  {ds:42} {n:>4} {s['normal']/n:>7.3f} {s['random']/n:>7.3f} {s['router']/n:>7.3f}")
+    print(f"{'='*70}")
+
 
 def main():
     parser = argparse.ArgumentParser(description="Evaluate trained router")
-    parser.add_argument("--model", default="/data/chenyang2/Qwen3-8B")
+    parser.add_argument("--model", default="/workspace/Qwen3-8B")
     parser.add_argument("--router", required=True, help="Path to router_weights.pt")
     parser.add_argument("--data", nargs="+", required=True,
-                        help="Fast mode: path to .pt file. Generate mode: parquet files.")
+                        help="Fast mode: path to .pt file. Generate mode: .pt file or parquet files.")
     parser.add_argument("--generate", action="store_true",
                         help="Generation mode (slower, tests on raw prompts)")
     parser.add_argument("--step", type=str, default="both",
@@ -391,19 +452,24 @@ def main():
     parser.add_argument("--tmp-file", type=str, default="/tmp/router_eval_tmp.pt",
                         help="Temp file for intermediate results between phases")
     parser.add_argument("--num-prompts", type=int, default=200,
-                        help="Number of test prompts (generate mode only)")
+                        help="Number of test prompts (0 = all)")
     parser.add_argument("--batch-size", type=int, default=8,
                         help="Batch size for hidden state extraction")
     parser.add_argument("--temperature", type=float, default=0.6)
     parser.add_argument("--top-p", type=float, default=0.95)
-    parser.add_argument("--max-tokens", type=int, default=4096)
-    parser.add_argument("--max-model-len", type=int, default=8192)
-    parser.add_argument("--tp", type=int, default=4)
+    parser.add_argument("--max-tokens", type=int, default=8192)
+    parser.add_argument("--max-model-len", type=int, default=16384)
+    parser.add_argument("--tp", type=int, default=1)
     parser.add_argument("--gpu-mem-util", type=float, default=0.9)
     parser.add_argument("--device", type=str, default="auto")
     args = parser.parse_args()
 
-    if args.device == "auto":
+    # In generate-only step, vLLM manages its own CUDA; initializing CUDA here
+    # (via torch.cuda.is_available()) would break vLLM's forked subprocess
+    # ("Cannot re-initialize CUDA in forked subprocess"). So use CPU device.
+    if args.generate and args.step == "generate":
+        device = torch.device("cpu")
+    elif args.device == "auto":
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     else:
         device = torch.device(args.device)

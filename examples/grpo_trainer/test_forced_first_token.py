@@ -113,7 +113,7 @@ def compute_score(response, data_source, ground_truth):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="/data/chenyang2/Qwen3-8B")
+    parser.add_argument("--model", default="/workspace/Qwen3-8B")
     parser.add_argument("--data", nargs="+", required=True)
     parser.add_argument("--num-prompts", type=int, default=200)
     parser.add_argument("--rollout-n", type=int, default=5, help="Rollouts per prompt")

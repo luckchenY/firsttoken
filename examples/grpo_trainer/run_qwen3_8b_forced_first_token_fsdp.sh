@@ -18,7 +18,7 @@ set -xeuo pipefail
 ########################### user-adjustable ###########################
 INFER_BACKEND=${INFER_BACKEND:-vllm}
 
-MODEL_PATH=${MODEL_PATH:-/data/chenyang2/Qwen3-8B}
+MODEL_PATH=${MODEL_PATH:-/workspace/Qwen3-8B}
 NNODES=${NNODES:-1}
 NGPUS_PER_NODE=${NGPUS_PER_NODE:-8}
 
