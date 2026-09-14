@@ -1,5 +1,9 @@
 **/*.pt
 **/checkpoints
+
+# 例外:允许 router_data_5000 下的训练数据上传
+!router_data_5000/
+!router_data_5000/**
 **/wget-log
 **/_build/
 **/*.ckpt
