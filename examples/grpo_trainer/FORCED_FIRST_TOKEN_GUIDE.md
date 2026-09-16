@@ -1,10 +1,6 @@
-# Forced-First-Token GRPO 完整执行指南
+# Forced-First-Token 完整执行指南
 
 ## 概述
-
-本指南涵盖从数据下载到 GRPO 训练的完整流程。
-
-**算法**：标准 GRPO + 对全错 group 做 forced first token re-rollout。如果 re-rollout 有正确答案，替换原 group 的 position 0。可选使用训练好的 Router 自动选择最佳 forced token。
 
 **环境**：
 - 机器：`eez233` (HKUST), 4x GPU (无 NVLink)
@@ -541,13 +537,13 @@ python examples/grpo_trainer/eval_router.py \
     --max-tokens 8192 --max-model-len 16384 \
     --tmp-file router_data_5000/split/eval_tmp.pt
 
-# 7. GRPO 训练
-export FORCED_FIRST_TOKEN_LIST="<TOKEN_LIST>"
-export ROUTER_WEIGHTS_PATH=/data/chenyang2/router_weights.pt
-export VERL_USE_UV=0
-export HF_ENDPOINT=https://hf-mirror.com
-export NCCL_P2P_DISABLE=1
-NGPUS_PER_NODE=4 bash examples/grpo_trainer/run_qwen3_8b_forced_first_token_grpo.sh
+# # 7. GRPO 训练
+# export FORCED_FIRST_TOKEN_LIST="<TOKEN_LIST>"
+# export ROUTER_WEIGHTS_PATH=/data/chenyang2/router_weights.pt
+# export VERL_USE_UV=0
+# export HF_ENDPOINT=https://hf-mirror.com
+# export NCCL_P2P_DISABLE=1
+# NGPUS_PER_NODE=4 bash examples/grpo_trainer/run_qwen3_8b_forced_first_token_grpo.sh
 ```
 
 ---
