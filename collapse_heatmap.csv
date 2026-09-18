@@ -1,0 +1,12 @@
+model,benchmark,top_k_mass,top1,entropy,n_prompts,top_tokens
+glm-4-9b-chat,aime,0.7911081160998648,0.320501814774644,0.5081684401226566,90,"To | We | Let | The | First | 
+ | Since | ["
+glm-4-9b-chat,arc,0.9986995265597273,0.2599280899385953,0.29690273373340137,300,B | C | A | D | The | To | Answer | **
+glm-4-9b-chat,bbeh,0.5011370814030688,0.21930461850953017,0.556689526747791,300,To | The | Thought | unknown | (C | (D | 1 | AC
+glm-4-9b-chat,drop,0.9440331578156936,0.8476719075366013,0.1289832220878411,300,"#### | ####
+ | The | 2 | Hen | Asia | Gi | Billy"
+glm-4-9b-chat,gpqa_diamond,0.8740418384102335,0.4610357193386953,0.36673805471095555,198,To | The | Given | Let | D | Based | 为了 | A
+glm-4-9b-chat,logic2,0.9968891726870751,0.2641272051441233,0.3207144045981496,300,B | C | A | D | The | Based | To | Given
+glm-4-9b-chat,math,0.9642045840520056,0.8510699661670145,0.15121667357020344,300,To | Let | Step | First | Sure | The | We | Given
+glm-4-9b-chat,mmlu_pro,0.8098471311575927,0.355948104104116,0.42409671809558935,300,To | The | B | A | C | D | E | F
+glm-4-9b-chat,musr,0.9644595212051642,0.21431798511668806,0.4482121715268631,300,A | B | Given | Based | The | C | D | To

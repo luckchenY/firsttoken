@@ -1,0 +1,83 @@
+model,benchmark,top_k_mass,top1,entropy,n_prompts,top_tokens
+DeepSeek-R1-Distill-Qwen-1.5B,aime,0.9998090254077052,0.8648526851347397,0.11881400220560556,90, so |  let |  I |  okay |  here |  this |  we |  the
+DeepSeek-R1-Distill-Qwen-1.5B,arc,0.9991391561053441,0.859502359282695,0.10536349680905249,300, so |  I |  let |  the |  Tobias |  identify |  determine |  recognize
+DeepSeek-R1-Distill-Qwen-1.5B,bbeh,0.9935551289043765,0.5661870490642631,0.20991462202468367,300, so |  let |  I |  the | 我 |  start | 我现在 |  calculate
+DeepSeek-R1-Distill-Qwen-1.5B,drop,0.9999340479031001,0.6233512783632565,0.22478112688094043,300, so |  I |  let |  the |  okay |  identify |  to |  looking
+DeepSeek-R1-Distill-Qwen-1.5B,gpqa_diamond,0.9999170136208164,0.8447774410588952,0.12783288930265455,198, so |  let |  I |  the |  okay |  this |  today |  time
+DeepSeek-R1-Distill-Qwen-1.5B,logic2,0.9999502317408175,0.6932257093918636,0.2137934548397226,300, so |  I |  let |  the |  okay |  looking |  now |  this
+DeepSeek-R1-Distill-Qwen-1.5B,math,0.9991850885072929,0.8978716776342469,0.08115266521667354,300, so |  let |  I |  okay |  Monica |  identify |  here |  calculate
+DeepSeek-R1-Distill-Qwen-1.5B,mmlu_pro,0.9864647308960466,0.7541702672386538,0.16768768955225635,300, so |  I |  let |  the |  determine |  identify |  which |  calculate
+DeepSeek-R1-Distill-Qwen-1.5B,musr,0.9998140293007868,0.7622574724874485,0.18481262037116522,300, so |  I |  let |  okay |  the |  now |  time |  this
+DeepSeek-V2-Lite,aime,0.37452576052026376,0.07404002461472198,0.5805201794510937,90," I | 
+ |  Hi |  Let |  The |  You |  This |  Hello"
+DeepSeek-V2-Lite,arc,0.35813990004614865,0.0693118358933232,0.4414711423019828,300," I |  What |  The |  Which | 
+ |  How |  You |  A"
+DeepSeek-V2-Lite,bbeh,0.5100314632722774,0.23490896154658425,0.42649539230507955,300,"
+ |   |  The |  I |  You |  Thank |  Task |  Please"
+DeepSeek-V2-Lite,drop,0.36134728244175524,0.1059905892884863,0.3772572407924249,300,"
+ |   |  The |  I |  You |  "" |  What |  How"
+DeepSeek-V2-Lite,gpqa_diamond,0.46671015984128633,0.16951815133965673,0.4529165139114573,198,"
+ |  The |   |  I |  You |  Hello |  Thank |  Hi"
+DeepSeek-V2-Lite,logic2,0.4005551331780466,0.10092904010962517,0.4851947627029117,300, I |  Hello |  Good |  Mr |  The |  What |  We |  You
+DeepSeek-V2-Lite,math,0.41127228113580117,0.11301543749187828,0.49367313835111926,300,"
+ |  I |   |  The |  OK |  Okay |  Let |  You"
+DeepSeek-V2-Lite,mmlu_pro,0.41395713282584995,0.15199429230461145,0.40146883412137646,300,"
+ |  The |   |  I |  You |  What |  A |  This"
+DeepSeek-V2-Lite,musr,0.31799366970960985,0.08073037584695464,0.39368049269889344,300,"
+ |  The |  "" |   |  I |  You |  Detective |  A"
+Mistral-7B-Instruct-v0.3,aime,0.778340822394296,0.5933404644113234,0.23994781103937604,90,"
+ | [ | s | The | < | Let | To | $"
+Mistral-7B-Instruct-v0.3,arc,0.9832080241032992,0.7984824165368742,0.17987768866075396,300,"
+ | C | [ | B | . | A | D | INST"
+Mistral-7B-Instruct-v0.3,bbeh,0.946928723083965,0.8599422051866831,0.14313102300329816,300,"
+ | [ | ( | The | No | AC | A | Yes"
+Mistral-7B-Instruct-v0.3,drop,0.9901299712598906,0.9252455524445611,0.06334200989700789,300,"
+ | #### | [ | The | An | 1 | In | M"
+Mistral-7B-Instruct-v0.3,gpqa_diamond,0.9882877671580896,0.9393676717533223,0.07380785241821831,198,"
+ | [ | The | s | C | D | B | A"
+Mistral-7B-Instruct-v0.3,logic2,0.9898591961276155,0.9188547832017039,0.09423179470467435,300,"
+ | [ | C | A | . | D | B | INST"
+Mistral-7B-Instruct-v0.3,math,0.9577932268731022,0.8986601195153597,0.09472642379465215,300,"
+ | [ | Let | First | \ | The | To | '"
+Mistral-7B-Instruct-v0.3,mmlu_pro,0.9803852440102195,0.9240230401932473,0.08302844263342203,300,"
+ | [ | The | C | G | D | An | A"
+Mistral-7B-Instruct-v0.3,musr,0.9868464295913607,0.9372277122324832,0.07441813816304897,300,"
+ | B | C | [ | A | The | An | </s>"
+Phi-3.5-mini-instruct,aime,0.8666034429453704,0.20089876415690316,0.49596176637470163,90,We | Let | The | Since | To | First | There | Note
+Phi-3.5-mini-instruct,arc,0.9999999966650883,0.26081976540325474,0.2995403595304423,300,D | C | B | A | None | To | The | 
+Phi-3.5-mini-instruct,bbeh,0.5207911905506474,0.11746833543726368,0.5463105872511554,300,( |  | To | K | Yes | X | unknown | No
+Phi-3.5-mini-instruct,drop,0.6350071380200474,0.2438152373188466,0.5153535616395387,300,The |  | To | #### | In | After | There | R
+Phi-3.5-mini-instruct,gpqa_diamond,0.9807587813204774,0.3610613022207247,0.3408523801280647,198,The | To | D | C | B | A | Without | Based
+Phi-3.5-mini-instruct,logic2,0.9999912998852992,0.34304525505044337,0.2909140089778647,300,D | B | C | A | The | Option | Based | To
+Phi-3.5-mini-instruct,math,0.9837872365764501,0.5254799346411487,0.2857984601539041,300,To | We | Let | Step | First | Given | The | In
+Phi-3.5-mini-instruct,mmlu_pro,0.8046730308976154,0.2848462840321729,0.41262049344604534,300,To | The | J | C | E | D | I | F
+Phi-3.5-mini-instruct,musr,0.9999999065857438,0.35071463012216486,0.2649893066403872,300,A | C | B | D | E | The | Option | Based
+Qwen3-8B,aime,0.9999992988726163,0.9964889727698881,0.006896595617910661,90,Okay | Alright | okay | Hmm | Let | So | OK | Ok
+Qwen3-8B,arc,0.9999999606995386,0.9999614685804371,9.80443794231348e-05,300,Okay | Alright | So | okay | The | Let | OK |  Okay
+Qwen3-8B,bbeh,0.9999942545381486,0.9973932700648406,0.004227567857129381,300,Okay | Alright | Let | So | To | Now | okay | I
+Qwen3-8B,drop,0.9999995501580973,0.999648777388397,0.0007447660605587757,300,Okay | Alright | The | So | I | To | Let | Answer
+Qwen3-8B,gpqa_diamond,0.9999999570536624,0.9998398200917115,0.0003974791489493587,198,Okay | Alright | okay | So | Let | Hmm |  Okay | OK
+Qwen3-8B,logic2,0.9999997747336843,0.9997949290404003,0.0004750416238469813,300,Okay | Alright | okay | So | The | Let | OK |  Okay
+Qwen3-8B,math,0.9999999987249536,0.999996557287029,1.187041186607457e-05,300,Okay | Alright | okay | 嗯 |  Okay | So |  okay | OK
+Qwen3-8B,mmlu_pro,0.9999992746007811,0.9997814082237102,0.00045073134839846216,300,Okay | Alright | So | Let | The | okay | This | Hmm
+Qwen3-8B,musr,0.9999909530837104,0.9987228743755969,0.002612385504755179,300,Okay | Alright | So | Let | The | To | This | I
+Qwen3.5-4B,aime,0.9999590373856788,0.909041324314043,0.09369640597945265,90,Let | The | Here | (E | We | This | Okay |  Let
+Qwen3.5-4B,arc,0.99995439018543,0.8769203779465103,0.09611366857106246,300,The | Thinking | Here | 1 | I | Thought | Think | This
+Qwen3.5-4B,bbeh,0.9995653015460313,0.6176157232914639,0.1958753834772286,300,The | Thinking | Here | Okay | Let | This | I | To
+Qwen3.5-4B,drop,0.9999057511159145,0.947178648531719,0.05434613777307,300,Thinking | The | Here | Okay | Think | 用户 | I | Let
+Qwen3.5-4B,gpqa_diamond,0.9999577241633465,0.9275365485322973,0.060450352518601404,198,The | Here | This | Thinking | Let | I | (E | We
+Qwen3.5-4B,logic2,0.9997236547216279,0.949591787689873,0.059263938897931835,300,The | Thinking | Here | This | 1 | Let | Okay | We
+Qwen3.5-4B,math,0.9997427760435574,0.6782820978320804,0.21146690245084918,300,Here | The | Let | Thinking | We | To | This | Okay
+Qwen3.5-4B,mmlu_pro,0.999937109546628,0.9257956900304305,0.06401968817478079,300,The | Here | Thinking | Let | This | 1 | We | I
+Qwen3.5-4B,musr,0.9998390891555738,0.9086841832419581,0.09427438280388756,300,The | Thinking | Here | This |  The | To | Let | 1
+glm-4-9b-chat,aime,0.7911081160998648,0.320501814774644,0.5081684401226566,90,"To | We | Let | The | First | 
+ | Since | ["
+glm-4-9b-chat,arc,0.9986995265597273,0.2599280899385953,0.29690273373340137,300,B | C | A | D | The | To | Answer | **
+glm-4-9b-chat,bbeh,0.5011370814030688,0.21930461850953017,0.556689526747791,300,To | The | Thought | unknown | (C | (D | 1 | AC
+glm-4-9b-chat,drop,0.9440331578156936,0.8476719075366013,0.1289832220878411,300,"#### | ####
+ | The | 2 | Hen | Asia | Gi | Billy"
+glm-4-9b-chat,gpqa_diamond,0.8740418384102335,0.4610357193386953,0.36673805471095555,198,To | The | Given | Let | D | Based | 为了 | A
+glm-4-9b-chat,logic2,0.9968891726870751,0.2641272051441233,0.3207144045981496,300,B | C | A | D | The | Based | To | Given
+glm-4-9b-chat,math,0.9642045840520056,0.8510699661670145,0.15121667357020344,300,To | Let | Step | First | Sure | The | We | Given
+glm-4-9b-chat,mmlu_pro,0.8098471311575927,0.355948104104116,0.42409671809558935,300,To | The | B | A | C | D | E | F
+glm-4-9b-chat,musr,0.9644595212051642,0.21431798511668806,0.4482121715268631,300,A | B | Given | Based | The | C | D | To
