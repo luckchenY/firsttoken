@@ -1,0 +1,10 @@
+model,benchmark,top_k_mass,top1,entropy,n_prompts,top_tokens
+Mistral-7B-Instruct-v0.3,aime,0.9139108606294017,0.3649175926887065,0.3503380137702014,90,the | this | a | s | is | let | involves | an
+Mistral-7B-Instruct-v0.3,arc,0.3300806012014741,0.0700666397843236,0.6033048829644772,300,The | the | a |  | It | A | by | They
+Mistral-7B-Instruct-v0.3,bbeh,0.5638187298498094,0.11607329895134254,0.5091298942600795,300,", | ) | the | this | of | ni | there | G"
+Mistral-7B-Instruct-v0.3,drop,0.24082329987722617,0.06310771708987238,0.6249071669807461,300,does | of | touchdown | 2 |  | 1 | field | passage
+Mistral-7B-Instruct-v0.3,gpqa_diamond,0.6405519764098866,0.22577735750340744,0.47502229966506543,198,the | this | answer |  | The | A | of | option
+Mistral-7B-Instruct-v0.3,logic2,0.3900926832484921,0.17987762781581892,0.5849502895670434,300,The | A | It | In | If | X | Some | People
+Mistral-7B-Instruct-v0.3,math,0.8934729461372508,0.5126766020436261,0.29045090903758486,300,the | s | this | let | $ | a | $\ | we
+Mistral-7B-Instruct-v0.3,mmlu_pro,0.497516056223484,0.21841290252461482,0.522566927315793,300,the | this | The | answer |  | s | Yes | In
+Mistral-7B-Instruct-v0.3,musr,0.1454469932609112,0.04306332257327453,0.6902980296561128,300,storage | strengths | desk | personal | the | front | kitchen | instrument

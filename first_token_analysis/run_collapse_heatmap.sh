@@ -22,7 +22,7 @@ cd /data/chenyang2/verl
 #                Phi-3.5-mini-instruct=0, DeepSeek-R1-Distill-Llama-8B=2
 # ------------------------------------------------------------------
 echo "==========  [1/2] verl 环境 =========="
-/data/chenyang2/conda_envs/verl/bin/python examples/grpo_trainer/plot_collapse_heatmap.py \
+/data/chenyang2/conda_envs/verl/bin/python first_token_analysis/plot_collapse_heatmap.py \
     --model /data/chenyang2/Qwen3-8B,1,2 \
     --model /data/chenyang2/models/DeepSeek-R1-Distill-Qwen-1.5B,1,2 \
     --model /data/chenyang2/models/glm-4-9b-chat,1,1 \
@@ -42,9 +42,9 @@ echo "==========  [1/2] verl 环境 =========="
 #    skip_tokens: Qwen3.5-4B=0, Qwen3.5-35B-A3B=2
 # ------------------------------------------------------------------
 echo "==========  [2/2] swift 环境 =========="
-/data/chenyang2/conda_envs/swift/bin/python examples/grpo_trainer/plot_collapse_heatmap.py \
+/data/chenyang2/conda_envs/swift/bin/python first_token_analysis/plot_collapse_heatmap.py \
     --model /data/chenyang2/models/Qwen3.5-4B,1,0 \
-    --model /data/chenyang2/models/Qwen3.5-35B-A3B,4,2 \
+    --model /data/chenyang2/models/Qwen3.5-35B-A3B,4,0 \
     --data-dir /data/chenyang2/verl/data \
     --num-prompts 300 \
     --gpu-mem-util 0.85 \
@@ -57,7 +57,7 @@ echo "==========  [2/2] swift 环境 =========="
 # 3. 出图（从 cache 读取所有已跑过的模型）
 # ------------------------------------------------------------------
 echo "==========  画图  =========="
-/data/chenyang2/conda_envs/verl/bin/python examples/grpo_trainer/plot_collapse_heatmap.py \
+/data/chenyang2/conda_envs/verl/bin/python first_token_analysis/plot_collapse_heatmap.py \
     --plot-only \
     --metric top1 \
     --out collapse_heatmap_top1.png

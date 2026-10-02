@@ -547,3 +547,29 @@ python examples/grpo_trainer/eval_router.py \
 ```
 
 ---
+python examples/grpo_trainer/plot_collapse_heatmap.py     --model /data/chenyang2/models/DeepSeek-R1-Distill-Llama-8B,4,2     --data-dir /data/chenyang2/verl/data     --num-prompts 300 --gpu-mem-util 0.85 --max-model-len 8192     --cache collapse_cache.pkl --metric top1
+
+DeepSeek-R1-Distill：top1 ≈ 86%，第一个 token 是 " so"，skip=2 跳过 IMD\n
+Mistral-7B：top1 ≈ 90%，第一个，第二个 token 都是 \n（也是格式性换行）跳过 2
+Phi-3.5：top1 ≈ 30%，第一个 token 是 "The"/"To" 等（直接内容）
+GLM-4-9B：top1 ≈ 99.99%，第一个 token 是 \n（格式性换行） 跳过 1
+
+
+Qwen3要跳过两个token， <think> \n
+
+Qwen3.5,3.8不跳过，prompt里面已经有了标签会直接输出内容
+
+
+/data/chenyang2/conda_envs/verl/bin/python -c "
+import pickle
+with open('collapse_cache.pkl','rb') as f: c=pickle.load(f)
+for k in list(c):
+    if k[0] in ('Qwen3.5-4B','Qwen2.5-7B-Instruct'):
+        del c[k]; print('deleted', k)
+with open('collapse_cache.pkl','wb') as f: pickle.dump(c,f)
+print('remaining:', len(c))
+"
+
+
+cd /data/chenyang2/verl
+/data/chenyang2/conda_envs/verl/bin/python examples/grpo_trainer/plot_collapse_heatmap.py --plot-only --metric top1 --out collapse_heatmap_top1.png

@@ -1,0 +1,2000 @@
+{
+  "sample_rows_per_source": 1000,
+  "model_tokenizer": "/data/chenyang2/models/Qwen3-4B-Base",
+  "sources": {
+    "math_proofs": {
+      "repo": "nvidia/Nemotron-Math-Proofs-v1",
+      "split": "lean",
+      "sample_rows": 1000,
+      "target_rows": 335122,
+      "assistant_messages": 668,
+      "nonempty_content": 668,
+      "nonempty_reasoning_content": 668,
+      "reasoning_message_fraction": 1.0,
+      "counts": {
+        "content_raw": {
+          "73594:```": 668
+        },
+        "content_semantic": {
+          "73594:```": 668
+        },
+        "reasoning_content_raw": {
+          "334:**": 224,
+          "785:The": 114,
+          "820:####": 250,
+          "5338:First": 9,
+          "1654:We": 44,
+          "16:1": 27
+        },
+        "reasoning_content_semantic": {
+          "334:**": 224,
+          "785:The": 114,
+          "820:####": 250,
+          "5338:First": 9,
+          "1654:We": 44,
+          "16:1": 27
+        }
+      },
+      "top": {
+        "content_raw": [
+          {
+            "token": "73594:```",
+            "count": 668,
+            "fraction": 1.0
+          }
+        ],
+        "content_semantic": [
+          {
+            "token": "73594:```",
+            "count": 668,
+            "fraction": 1.0
+          }
+        ],
+        "reasoning_content_raw": [
+          {
+            "token": "820:####",
+            "count": 250,
+            "fraction": 0.37425149700598803
+          },
+          {
+            "token": "334:**",
+            "count": 224,
+            "fraction": 0.33532934131736525
+          },
+          {
+            "token": "785:The",
+            "count": 114,
+            "fraction": 0.17065868263473055
+          },
+          {
+            "token": "1654:We",
+            "count": 44,
+            "fraction": 0.0658682634730539
+          },
+          {
+            "token": "16:1",
+            "count": 27,
+            "fraction": 0.040419161676646706
+          },
+          {
+            "token": "5338:First",
+            "count": 9,
+            "fraction": 0.01347305389221557
+          }
+        ],
+        "reasoning_content_semantic": [
+          {
+            "token": "820:####",
+            "count": 250,
+            "fraction": 0.37425149700598803
+          },
+          {
+            "token": "334:**",
+            "count": 224,
+            "fraction": 0.33532934131736525
+          },
+          {
+            "token": "785:The",
+            "count": 114,
+            "fraction": 0.17065868263473055
+          },
+          {
+            "token": "1654:We",
+            "count": 44,
+            "fraction": 0.0658682634730539
+          },
+          {
+            "token": "16:1",
+            "count": 27,
+            "fraction": 0.040419161676646706
+          },
+          {
+            "token": "5338:First",
+            "count": 9,
+            "fraction": 0.01347305389221557
+          }
+        ]
+      }
+    },
+    "math": {
+      "repo": "nvidia/Nemotron-Math-v2",
+      "split": "medium",
+      "sample_rows": 1000,
+      "target_rows": 2950525,
+      "assistant_messages": 1000,
+      "nonempty_content": 1000,
+      "nonempty_reasoning_content": 1000,
+      "reasoning_message_fraction": 1.0,
+      "counts": {
+        "content_raw": {
+          "10061:Let": 544,
+          "2461:For": 36,
+          "785:The": 112,
+          "59:\\": 163,
+          "5338:First": 52,
+          "1249:To": 10,
+          "3830:From": 10,
+          "334:**": 36,
+          "1654:We": 16,
+          "12549:Since": 6,
+          "4498:When": 2,
+          "16429:Using": 1,
+          "3966:One": 1,
+          "641:In": 3,
+          "7985:Write": 1,
+          "1655:At": 1,
+          "17949:Because": 2,
+          "4854:Each": 1,
+          "17371:Place": 2,
+          "32:A": 1
+        },
+        "content_semantic": {
+          "10061:Let": 544,
+          "2461:For": 36,
+          "785:The": 112,
+          "59:\\": 163,
+          "5338:First": 52,
+          "1249:To": 10,
+          "3830:From": 10,
+          "334:**": 36,
+          "1654:We": 16,
+          "12549:Since": 6,
+          "4498:When": 2,
+          "16429:Using": 1,
+          "3966:One": 1,
+          "641:In": 3,
+          "7985:Write": 1,
+          "1655:At": 1,
+          "17949:Because": 2,
+          "4854:Each": 1,
+          "17371:Place": 2,
+          "32:A": 1
+        },
+        "reasoning_content_raw": {
+          "1654:We": 998,
+          "785:The": 2
+        },
+        "reasoning_content_semantic": {
+          "1654:We": 998,
+          "785:The": 2
+        }
+      },
+      "top": {
+        "content_raw": [
+          {
+            "token": "10061:Let",
+            "count": 544,
+            "fraction": 0.544
+          },
+          {
+            "token": "59:\\",
+            "count": 163,
+            "fraction": 0.163
+          },
+          {
+            "token": "785:The",
+            "count": 112,
+            "fraction": 0.112
+          },
+          {
+            "token": "5338:First",
+            "count": 52,
+            "fraction": 0.052
+          },
+          {
+            "token": "2461:For",
+            "count": 36,
+            "fraction": 0.036
+          },
+          {
+            "token": "334:**",
+            "count": 36,
+            "fraction": 0.036
+          },
+          {
+            "token": "1654:We",
+            "count": 16,
+            "fraction": 0.016
+          },
+          {
+            "token": "1249:To",
+            "count": 10,
+            "fraction": 0.01
+          },
+          {
+            "token": "3830:From",
+            "count": 10,
+            "fraction": 0.01
+          },
+          {
+            "token": "12549:Since",
+            "count": 6,
+            "fraction": 0.006
+          },
+          {
+            "token": "641:In",
+            "count": 3,
+            "fraction": 0.003
+          },
+          {
+            "token": "4498:When",
+            "count": 2,
+            "fraction": 0.002
+          },
+          {
+            "token": "17949:Because",
+            "count": 2,
+            "fraction": 0.002
+          },
+          {
+            "token": "17371:Place",
+            "count": 2,
+            "fraction": 0.002
+          },
+          {
+            "token": "16429:Using",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "3966:One",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "7985:Write",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "1655:At",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "4854:Each",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "32:A",
+            "count": 1,
+            "fraction": 0.001
+          }
+        ],
+        "content_semantic": [
+          {
+            "token": "10061:Let",
+            "count": 544,
+            "fraction": 0.544
+          },
+          {
+            "token": "59:\\",
+            "count": 163,
+            "fraction": 0.163
+          },
+          {
+            "token": "785:The",
+            "count": 112,
+            "fraction": 0.112
+          },
+          {
+            "token": "5338:First",
+            "count": 52,
+            "fraction": 0.052
+          },
+          {
+            "token": "2461:For",
+            "count": 36,
+            "fraction": 0.036
+          },
+          {
+            "token": "334:**",
+            "count": 36,
+            "fraction": 0.036
+          },
+          {
+            "token": "1654:We",
+            "count": 16,
+            "fraction": 0.016
+          },
+          {
+            "token": "1249:To",
+            "count": 10,
+            "fraction": 0.01
+          },
+          {
+            "token": "3830:From",
+            "count": 10,
+            "fraction": 0.01
+          },
+          {
+            "token": "12549:Since",
+            "count": 6,
+            "fraction": 0.006
+          },
+          {
+            "token": "641:In",
+            "count": 3,
+            "fraction": 0.003
+          },
+          {
+            "token": "4498:When",
+            "count": 2,
+            "fraction": 0.002
+          },
+          {
+            "token": "17949:Because",
+            "count": 2,
+            "fraction": 0.002
+          },
+          {
+            "token": "17371:Place",
+            "count": 2,
+            "fraction": 0.002
+          },
+          {
+            "token": "16429:Using",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "3966:One",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "7985:Write",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "1655:At",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "4854:Each",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "32:A",
+            "count": 1,
+            "fraction": 0.001
+          }
+        ],
+        "reasoning_content_raw": [
+          {
+            "token": "1654:We",
+            "count": 998,
+            "fraction": 0.998
+          },
+          {
+            "token": "785:The",
+            "count": 2,
+            "fraction": 0.002
+          }
+        ],
+        "reasoning_content_semantic": [
+          {
+            "token": "1654:We",
+            "count": 998,
+            "fraction": 0.998
+          },
+          {
+            "token": "785:The",
+            "count": 2,
+            "fraction": 0.002
+          }
+        ]
+      }
+    },
+    "science": {
+      "repo": "nvidia/Nemotron-Science-v1",
+      "split": "RQA",
+      "sample_rows": 1000,
+      "target_rows": 2263340,
+      "assistant_messages": 1000,
+      "nonempty_content": 1000,
+      "nonempty_reasoning_content": 1000,
+      "reasoning_message_fraction": 1.0,
+      "counts": {
+        "content_raw": {
+          "785:The": 189,
+          "59:\\": 733,
+          "334:**": 38,
+          "41961:Within": 1,
+          "24617:Starting": 5,
+          "10227:Before": 1,
+          "641:In": 3,
+          "37889:Bal": 1,
+          "16429:Using": 4,
+          "83725:**(": 4,
+          "1072:Int": 1,
+          "2461:For": 14,
+          "6217:Min": 1,
+          "1655:At": 1,
+          "3830:From": 2,
+          "4498:When": 1,
+          "36192:Comb": 1
+        },
+        "content_semantic": {
+          "785:The": 189,
+          "59:\\": 733,
+          "334:**": 38,
+          "41961:Within": 1,
+          "24617:Starting": 5,
+          "10227:Before": 1,
+          "641:In": 3,
+          "37889:Bal": 1,
+          "16429:Using": 4,
+          "83725:**(": 4,
+          "1072:Int": 1,
+          "2461:For": 14,
+          "6217:Min": 1,
+          "1655:At": 1,
+          "3830:From": 2,
+          "4498:When": 1,
+          "36192:Comb": 1
+        },
+        "reasoning_content_raw": {
+          "1654:We": 997,
+          "785:The": 3
+        },
+        "reasoning_content_semantic": {
+          "1654:We": 997,
+          "785:The": 3
+        }
+      },
+      "top": {
+        "content_raw": [
+          {
+            "token": "59:\\",
+            "count": 733,
+            "fraction": 0.733
+          },
+          {
+            "token": "785:The",
+            "count": 189,
+            "fraction": 0.189
+          },
+          {
+            "token": "334:**",
+            "count": 38,
+            "fraction": 0.038
+          },
+          {
+            "token": "2461:For",
+            "count": 14,
+            "fraction": 0.014
+          },
+          {
+            "token": "24617:Starting",
+            "count": 5,
+            "fraction": 0.005
+          },
+          {
+            "token": "16429:Using",
+            "count": 4,
+            "fraction": 0.004
+          },
+          {
+            "token": "83725:**(",
+            "count": 4,
+            "fraction": 0.004
+          },
+          {
+            "token": "641:In",
+            "count": 3,
+            "fraction": 0.003
+          },
+          {
+            "token": "3830:From",
+            "count": 2,
+            "fraction": 0.002
+          },
+          {
+            "token": "41961:Within",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "10227:Before",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "37889:Bal",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "1072:Int",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "6217:Min",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "1655:At",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "4498:When",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "36192:Comb",
+            "count": 1,
+            "fraction": 0.001
+          }
+        ],
+        "content_semantic": [
+          {
+            "token": "59:\\",
+            "count": 733,
+            "fraction": 0.733
+          },
+          {
+            "token": "785:The",
+            "count": 189,
+            "fraction": 0.189
+          },
+          {
+            "token": "334:**",
+            "count": 38,
+            "fraction": 0.038
+          },
+          {
+            "token": "2461:For",
+            "count": 14,
+            "fraction": 0.014
+          },
+          {
+            "token": "24617:Starting",
+            "count": 5,
+            "fraction": 0.005
+          },
+          {
+            "token": "16429:Using",
+            "count": 4,
+            "fraction": 0.004
+          },
+          {
+            "token": "83725:**(",
+            "count": 4,
+            "fraction": 0.004
+          },
+          {
+            "token": "641:In",
+            "count": 3,
+            "fraction": 0.003
+          },
+          {
+            "token": "3830:From",
+            "count": 2,
+            "fraction": 0.002
+          },
+          {
+            "token": "41961:Within",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "10227:Before",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "37889:Bal",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "1072:Int",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "6217:Min",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "1655:At",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "4498:When",
+            "count": 1,
+            "fraction": 0.001
+          },
+          {
+            "token": "36192:Comb",
+            "count": 1,
+            "fraction": 0.001
+          }
+        ],
+        "reasoning_content_raw": [
+          {
+            "token": "1654:We",
+            "count": 997,
+            "fraction": 0.997
+          },
+          {
+            "token": "785:The",
+            "count": 3,
+            "fraction": 0.003
+          }
+        ],
+        "reasoning_content_semantic": [
+          {
+            "token": "1654:We",
+            "count": 997,
+            "fraction": 0.997
+          },
+          {
+            "token": "785:The",
+            "count": 3,
+            "fraction": 0.003
+          }
+        ]
+      }
+    },
+    "code": {
+      "repo": "nvidia/Nemotron-Competitive-Programming-v1",
+      "split": "competitive_coding_python_part00",
+      "sample_rows": 1000,
+      "target_rows": 3927984,
+      "assistant_messages": 1000,
+      "nonempty_content": 1000,
+      "nonempty_reasoning_content": 1000,
+      "reasoning_message_fraction": 1.0,
+      "counts": {
+        "content_raw": {
+          "1249:To": 996,
+          "72819:Ð§": 4
+        },
+        "content_semantic": {
+          "1249:To": 996,
+          "72819:Ð§": 4
+        },
+        "reasoning_content_raw": {
+          "37991:Ðľ": 8,
+          "1654:We": 992
+        },
+        "reasoning_content_semantic": {
+          "37991:Ðľ": 8,
+          "1654:We": 992
+        }
+      },
+      "top": {
+        "content_raw": [
+          {
+            "token": "1249:To",
+            "count": 996,
+            "fraction": 0.996
+          },
+          {
+            "token": "72819:Ð§",
+            "count": 4,
+            "fraction": 0.004
+          }
+        ],
+        "content_semantic": [
+          {
+            "token": "1249:To",
+            "count": 996,
+            "fraction": 0.996
+          },
+          {
+            "token": "72819:Ð§",
+            "count": 4,
+            "fraction": 0.004
+          }
+        ],
+        "reasoning_content_raw": [
+          {
+            "token": "1654:We",
+            "count": 992,
+            "fraction": 0.992
+          },
+          {
+            "token": "37991:Ðľ",
+            "count": 8,
+            "fraction": 0.008
+          }
+        ],
+        "reasoning_content_semantic": [
+          {
+            "token": "1654:We",
+            "count": 992,
+            "fraction": 0.992
+          },
+          {
+            "token": "37991:Ðľ",
+            "count": 8,
+            "fraction": 0.008
+          }
+        ]
+      }
+    },
+    "chat": {
+      "repo": "nvidia/Nemotron-Instruction-Following-Chat-v1",
+      "split": "chat_if",
+      "sample_rows": 1000,
+      "target_rows": 4309780,
+      "assistant_messages": 3339,
+      "nonempty_content": 3339,
+      "nonempty_reasoning_content": 818,
+      "reasoning_message_fraction": 0.24498352800239592,
+      "counts": {
+        "content_raw": {
+          "24765:Ah": 122,
+          "11908:Oh": 132,
+          "2610:You": 648,
+          "39832:Â¡": 36,
+          "58778:SECTION": 13,
+          "785:The": 102,
+          "1925:On": 2,
+          "334:**": 160,
+          "34:C": 10,
+          "515:{Ċ": 6,
+          "52592:Actually": 19,
+          "4792:That": 85,
+          "1940:âĢ¦": 28,
+          "73594:```": 19,
+          "2132:It": 4,
+          "40:I": 235,
+          "77045:Absolutely": 276,
+          "1:\"": 37,
+          "5050:My": 28,
+          "45747:Ingredients": 3,
+          "18665:Hey": 53,
+          "49655:Excellent": 20,
+          "32:A": 21,
+          "1143:Ch": 2,
+          "675:Name": 1,
+          "68:e": 1,
+          "36:E": 3,
+          "55793:kick": 1,
+          "3838:What": 9,
+          "47:P": 3,
+          "1519:He": 3,
+          "60421:Serve": 1,
+          "56715:Cy": 1,
+          "2442:<<": 72,
+          "83956:Vers": 1,
+          "11:,": 5,
+          "13048:Hi": 16,
+          "1986:This": 59,
+          "21396:Great": 22,
+          "6828:Br": 3,
+          "8304:Step": 7,
+          "12:-": 33,
+          "68012:Hola": 2,
+          "44:M": 4,
+          "9454:Yes": 176,
+          "1655:At": 6,
+          "383:he": 1,
+          "3966:One": 1,
+          "45:N": 51,
+          "144841:ðŁİī": 6,
+          "8696:COM": 1,
+          "7771:Your": 8,
+          "13060:Thank": 66,
+          "1249:To": 8,
+          "24318:Quick": 1,
+          "13159:Even": 1,
+          "3294:level": 4,
+          "70151:Understanding": 1,
+          "58287:Emer": 2,
+          "30416:Da": 1,
+          "20055:Excel": 4,
+          "5066:Cl": 4,
+          "39062:Ãĵ": 2,
+          "2124:Of": 55,
+          "30733:Phase": 5,
+          "1918:Over": 1,
+          "2269:Em": 1,
+          "4854:Each": 2,
+          "92327:******ĊĊ": 1,
+          "46731:league": 1,
+          "9:*": 10,
+          "13019:Subject": 10,
+          "35:D": 2,
+          "3479:Start": 8,
+          "331:ch": 1,
+          "7:(": 3,
+          "35544:Vi": 1,
+          "14004:YES": 1,
+          "15216:Good": 1,
+          "46:O": 7,
+          "19398:Stage": 2,
+          "6397:Target": 1,
+          "34791:Performance": 1,
+          "30665:Dear": 2,
+          "27710:phrase": 1,
+          "23336:Yeah": 2,
+          "10531:MO": 1,
+          "76:m": 1,
+          "7941:She": 11,
+          "5637:Version": 4,
+          "58:[": 5,
+          "9620:Section": 14,
+          "2753:No": 13,
+          "41010:Guide": 1,
+          "4197:with": 1,
+          "66862:Hardware": 1,
+          "2:#": 2,
+          "59642:Esta": 4,
+          "10159:Day": 4,
+          "3231:current": 1,
+          "75:l": 1,
+          "10812:stone": 1,
+          "9707:Hello": 5,
+          "7442:Sl": 1,
+          "12555:what": 22,
+          "5501:Please": 1,
+          "11135:Begin": 5,
+          "82:s": 1,
+          "16:1": 17,
+          "93428:Sac": 1,
+          "13079:John": 2,
+          "58050:Sounds": 1,
+          "10061:Let": 2,
+          "641:In": 9,
+          "38687:Think": 1,
+          "20406:nick": 1,
+          "71585:Achie": 1,
+          "29133:\"A": 1,
+          "5338:First": 8,
+          "9286:Art": 2,
+          "38214:Below": 5,
+          "9344:tree": 1,
+          "10888:Single": 1,
+          "28077:could": 1,
+          "78794:Houston": 2,
+          "2662:Out": 1,
+          "44129:MENU": 1,
+          "13936:Welcome": 2,
+          "84344:Morning": 4,
+          "6739:here": 1,
+          "698:\"Ċ": 2,
+          "72789:Reflect": 1,
+          "80516:Weekly": 2,
+          "28715:Based": 1,
+          "8420:Here": 13,
+          "33464:Deep": 1,
+          "51041:Perfect": 10,
+          "39:H": 2,
+          "144670:ðŁĶ¥": 3,
+          "39814:Sure": 11,
+          "127484:Ø§Ø³Ùħ": 1,
+          "558:ice": 1,
+          "27:<": 1,
+          "3617:TH": 1,
+          "46616:SIM": 1,
+          "92431:Stories": 1,
+          "14374:###": 4,
+          "27571:Sil": 1,
+          "20706:Such": 2,
+          "51927:telephone": 1,
+          "10022:\"The": 4,
+          "31:@": 1,
+          "453:op": 1,
+          "33:B": 2,
+          "23227:Organ": 1,
+          "46430:give": 1,
+          "133206:ÙĨØ¹Ùħ": 1,
+          "26218:Visit": 1,
+          "66310:\"S": 1,
+          "56641:\"For": 1,
+          "61547:Protect": 1,
+          "95521:Knowing": 1,
+          "17949:Because": 1,
+          "69378:\"At": 1,
+          "10713:\"We": 1,
+          "38:G": 6,
+          "50:S": 19,
+          "3889:Per": 2,
+          "44923:Chinese": 1,
+          "3152:base": 1,
+          "1596:thing": 1,
+          "7039:Now": 7,
+          "4498:When": 6,
+          "64725:Yo": 1,
+          "7044:\"I": 1,
+          "12658:Thanks": 2,
+          "3862:There": 7,
+          "11759:sen": 1,
+          "20011:norm": 1,
+          "19552:Mac": 1,
+          "2408:my": 1,
+          "95456:Certainly": 8,
+          "100431:ä¸ĭéĿ¢": 1,
+          "565:##": 2,
+          "16583:Tools": 1,
+          "13543:<!": 1,
+          "55091:Ðķ": 1,
+          "59527:ÐŀÑĤ": 3,
+          "61598:Mus": 2,
+          "6599:*(": 12,
+          "49000:France": 1,
+          "1654:We": 2,
+          "6406:Sp": 1,
+          "20566:attack": 1,
+          "12275:Mr": 2,
+          "80294:Hell": 1,
+          "43:L": 1,
+          "2446:TE": 1,
+          "47467:Learning": 1,
+          "87005:[date": 1,
+          "2250:Ent": 2,
+          "3927:rest": 1,
+          "1015:co": 2,
+          "133711:Ø´ÙĥØ±": 1,
+          "134269:Ø³Ø¤Ø§ÙĦ": 1,
+          "5225:ONE": 1,
+          "301:el": 1,
+          "1782:the": 3,
+          "25140:Recent": 1,
+          "36850:Implementation": 1,
+          "41815:MAIN": 1,
+          "77118:Ky": 1,
+          "44751:Ingredient": 1,
+          "61058:Captain": 1,
+          "31400:CAP": 1,
+          "8949:Mark": 1,
+          "83863:Chicken": 1,
+          "36934:Cert": 1,
+          "4133:Post": 1,
+          "1966:sub": 1,
+          "31967:drive": 1,
+          "2121:As": 2,
+          "91510:DEN": 1,
+          "16728:Confirm": 1,
+          "2679:If": 1,
+          "24051:Choose": 1,
+          "3379:Select": 1,
+          "8747:La": 1,
+          "67644:Recommend": 1,
+          "10463:Photo": 1,
+          "4421:---": 1,
+          "40551:Meet": 1,
+          "693:Re": 1,
+          "145299:ðŁĮ¼": 1,
+          "306:ent": 1,
+          "1592:Key": 2,
+          "50799:NÃ£o": 1,
+          "7849:Project": 1,
+          "45974:pressure": 1,
+          "35451:ÐĹ": 6,
+          "22319:Inventory": 1,
+          "91:|": 2,
+          "12187:Pass": 1,
+          "72:i": 2,
+          "66:c": 1,
+          "9461:border": 1,
+          "25150:Spring": 1,
+          "59641:Timeline": 1,
+          "9860:Move": 1,
+          "30092:Sun": 1,
+          "10253:Use": 1,
+          "12753:feature": 2,
+          "103942:å½ĵçĦ¶": 1,
+          "87026:æĤ¨": 1,
+          "7983:While": 1,
+          "24617:Starting": 1,
+          "12209:Then": 5,
+          "19098:sure": 2,
+          "59058:Mes": 1,
+          "78078:Hallo": 1,
+          "72618:Executive": 2,
+          "5835:HTML": 1,
+          "1001:Th": 1,
+          "623:St": 1,
+          "51838:Congratulations": 1,
+          "98781:Cream": 1,
+          "65357:Exactly": 1,
+          "68833:Prec": 1,
+          "2141:size": 1,
+          "65120:\"To": 1,
+          "687:IN": 1,
+          "17053:Week": 1,
+          "2304:Le": 1,
+          "34115:Experience": 1,
+          "27387:Alex": 4,
+          "17229:THE": 2,
+          "3896:first": 1,
+          "13021:Remove": 1,
+          "57193:Detect": 1,
+          "1873:press": 2,
+          "4259:last": 1,
+          "58436:glass": 2,
+          "10033:TEST": 1,
+          "1861:UN": 1,
+          "96736:approximately": 1,
+          "9520:step": 2,
+          "48983:Histor": 1,
+          "40248:Travel": 1,
+          "89428:Abr": 1,
+          "85699:River": 1,
+          "792:key": 2,
+          "19127:beta": 1,
+          "26708:\"If": 1,
+          "38021:OPT": 1,
+          "62130:Merc": 2,
+          "27778:Abs": 3,
+          "1806:Un": 1,
+          "71486:Alright": 1,
+          "19301:market": 1,
+          "89199:\"G": 1,
+          "59860:WHAT": 1,
+          "6582:El": 1,
+          "15:0": 1,
+          "10796:fire": 1,
+          "26957:Following": 1,
+          "16250:Under": 1,
+          "34797:Their": 2,
+          "44915:Pros": 1,
+          "98629:Managing": 2,
+          "8732:Contact": 1,
+          "72007:Monthly": 2,
+          "37:F": 1,
+          "54118:Eu": 1,
+          "69286:VocÃª": 1,
+          "1916:Date": 1,
+          "145712:ðŁĮĻ": 2,
+          "56534:Fant": 1,
+          "74033:Purpose": 1,
+          "9485:These": 1,
+          "1949:Get": 1,
+          "12292:Join": 2,
+          "1359:By": 1,
+          "144388:ì¢ĭ": 1,
+          "29281:ìłķ": 1,
+          "126730:ëĦ¤": 1,
+          "130973:ìĻĦ": 1,
+          "42:K": 2,
+          "1462:Time": 1,
+          "2556:Table": 1,
+          "11095:Mon": 1,
+          "29754:Je": 2,
+          "144232:âľ¨": 3,
+          "13782:Est": 1,
+          "6823:ACT": 1,
+          "28590:Remember": 1,
+          "84423:Mess": 1,
+          "3830:From": 1,
+          "28251:Love": 1,
+          "412:turn": 2,
+          "30404:Regular": 1,
+          "56739:som": 1,
+          "76019:Moon": 1,
+          "2101:Al": 1,
+          "20412:æĺ¯": 1,
+          "27560:Transport": 1,
+          "26445:transport": 2,
+          "36441:sea": 2,
+          "16844:SW": 1,
+          "60512:Materials": 1,
+          "42008:Critical": 1,
+          "29401:CLE": 2,
+          "1649:Set": 1,
+          "19784:sur": 1,
+          "3973:Check": 2,
+          "59528:Seven": 1,
+          "750:def": 1,
+          "10952:---Ċ": 1,
+          "2016:Sh": 1,
+          "776:pro": 1,
+          "1972:Context": 1,
+          "24566:Ben": 3,
+          "12594:Theme": 1,
+          "20705:Her": 1,
+          "28391:Pause": 2,
+          "888:public": 1,
+          "41198:Early": 1,
+          "86555:\"F": 1,
+          "45941:Solid": 1,
+          "90173:Tomorrow": 1,
+          "1043:Data": 1,
+          "19816:Strategy": 1,
+          "11084:Enable": 1,
+          "49:R": 1,
+          "44220:Quant": 1,
+          "84138:Bell": 1
+        },
+        "content_semantic": {
+          "24765:Ah": 122,
+          "11908:Oh": 132,
+          "2610:You": 648,
+          "39832:Â¡": 36,
+          "58778:SECTION": 13,
+          "785:The": 102,
+          "1925:On": 2,
+          "334:**": 160,
+          "34:C": 10,
+          "515:{Ċ": 6,
+          "52592:Actually": 19,
+          "4792:That": 85,
+          "1940:âĢ¦": 28,
+          "73594:```": 19,
+          "2132:It": 4,
+          "40:I": 235,
+          "77045:Absolutely": 276,
+          "1:\"": 37,
+          "5050:My": 28,
+          "45747:Ingredients": 3,
+          "18665:Hey": 53,
+          "49655:Excellent": 20,
+          "32:A": 21,
+          "1143:Ch": 2,
+          "675:Name": 1,
+          "68:e": 1,
+          "36:E": 3,
+          "55793:kick": 1,
+          "3838:What": 9,
+          "47:P": 3,
+          "1519:He": 3,
+          "60421:Serve": 1,
+          "56715:Cy": 1,
+          "2442:<<": 72,
+          "83956:Vers": 1,
+          "11:,": 5,
+          "13048:Hi": 16,
+          "1986:This": 59,
+          "21396:Great": 22,
+          "6828:Br": 3,
+          "8304:Step": 7,
+          "12:-": 33,
+          "68012:Hola": 2,
+          "44:M": 4,
+          "9454:Yes": 176,
+          "1655:At": 6,
+          "383:he": 1,
+          "3966:One": 1,
+          "45:N": 51,
+          "144841:ðŁİī": 6,
+          "8696:COM": 1,
+          "7771:Your": 8,
+          "13060:Thank": 66,
+          "1249:To": 8,
+          "24318:Quick": 1,
+          "13159:Even": 1,
+          "3294:level": 4,
+          "70151:Understanding": 1,
+          "58287:Emer": 2,
+          "30416:Da": 1,
+          "20055:Excel": 4,
+          "5066:Cl": 4,
+          "39062:Ãĵ": 2,
+          "2124:Of": 55,
+          "30733:Phase": 5,
+          "1918:Over": 1,
+          "2269:Em": 1,
+          "4854:Each": 2,
+          "92327:******ĊĊ": 1,
+          "46731:league": 1,
+          "9:*": 10,
+          "13019:Subject": 10,
+          "35:D": 2,
+          "3479:Start": 8,
+          "331:ch": 1,
+          "7:(": 3,
+          "35544:Vi": 1,
+          "14004:YES": 1,
+          "15216:Good": 1,
+          "46:O": 7,
+          "19398:Stage": 2,
+          "6397:Target": 1,
+          "34791:Performance": 1,
+          "30665:Dear": 2,
+          "27710:phrase": 1,
+          "23336:Yeah": 2,
+          "10531:MO": 1,
+          "76:m": 1,
+          "7941:She": 11,
+          "5637:Version": 4,
+          "58:[": 5,
+          "9620:Section": 14,
+          "2753:No": 13,
+          "41010:Guide": 1,
+          "4197:with": 1,
+          "66862:Hardware": 1,
+          "2:#": 2,
+          "59642:Esta": 4,
+          "10159:Day": 4,
+          "3231:current": 1,
+          "75:l": 1,
+          "10812:stone": 1,
+          "9707:Hello": 5,
+          "7442:Sl": 1,
+          "12555:what": 22,
+          "5501:Please": 1,
+          "11135:Begin": 5,
+          "82:s": 1,
+          "16:1": 17,
+          "93428:Sac": 1,
+          "13079:John": 2,
+          "58050:Sounds": 1,
+          "10061:Let": 2,
+          "641:In": 9,
+          "38687:Think": 1,
+          "20406:nick": 1,
+          "71585:Achie": 1,
+          "29133:\"A": 1,
+          "5338:First": 8,
+          "9286:Art": 2,
+          "38214:Below": 5,
+          "9344:tree": 1,
+          "10888:Single": 1,
+          "28077:could": 1,
+          "78794:Houston": 2,
+          "2662:Out": 1,
+          "44129:MENU": 1,
+          "13936:Welcome": 2,
+          "84344:Morning": 4,
+          "6739:here": 1,
+          "698:\"Ċ": 2,
+          "72789:Reflect": 1,
+          "80516:Weekly": 2,
+          "28715:Based": 1,
+          "8420:Here": 13,
+          "33464:Deep": 1,
+          "51041:Perfect": 10,
+          "39:H": 2,
+          "144670:ðŁĶ¥": 3,
+          "39814:Sure": 11,
+          "127484:Ø§Ø³Ùħ": 1,
+          "558:ice": 1,
+          "27:<": 1,
+          "3617:TH": 1,
+          "46616:SIM": 1,
+          "92431:Stories": 1,
+          "14374:###": 4,
+          "27571:Sil": 1,
+          "20706:Such": 2,
+          "51927:telephone": 1,
+          "10022:\"The": 4,
+          "31:@": 1,
+          "453:op": 1,
+          "33:B": 2,
+          "23227:Organ": 1,
+          "46430:give": 1,
+          "133206:ÙĨØ¹Ùħ": 1,
+          "26218:Visit": 1,
+          "66310:\"S": 1,
+          "56641:\"For": 1,
+          "61547:Protect": 1,
+          "95521:Knowing": 1,
+          "17949:Because": 1,
+          "69378:\"At": 1,
+          "10713:\"We": 1,
+          "38:G": 6,
+          "50:S": 19,
+          "3889:Per": 2,
+          "44923:Chinese": 1,
+          "3152:base": 1,
+          "1596:thing": 1,
+          "7039:Now": 7,
+          "4498:When": 6,
+          "64725:Yo": 1,
+          "7044:\"I": 1,
+          "12658:Thanks": 2,
+          "3862:There": 7,
+          "11759:sen": 1,
+          "20011:norm": 1,
+          "19552:Mac": 1,
+          "2408:my": 1,
+          "95456:Certainly": 8,
+          "100431:ä¸ĭéĿ¢": 1,
+          "565:##": 2,
+          "16583:Tools": 1,
+          "13543:<!": 1,
+          "55091:Ðķ": 1,
+          "59527:ÐŀÑĤ": 3,
+          "61598:Mus": 2,
+          "6599:*(": 12,
+          "49000:France": 1,
+          "1654:We": 2,
+          "6406:Sp": 1,
+          "20566:attack": 1,
+          "12275:Mr": 2,
+          "80294:Hell": 1,
+          "43:L": 1,
+          "2446:TE": 1,
+          "47467:Learning": 1,
+          "87005:[date": 1,
+          "2250:Ent": 2,
+          "3927:rest": 1,
+          "1015:co": 2,
+          "133711:Ø´ÙĥØ±": 1,
+          "134269:Ø³Ø¤Ø§ÙĦ": 1,
+          "5225:ONE": 1,
+          "301:el": 1,
+          "1782:the": 3,
+          "25140:Recent": 1,
+          "36850:Implementation": 1,
+          "41815:MAIN": 1,
+          "77118:Ky": 1,
+          "44751:Ingredient": 1,
+          "61058:Captain": 1,
+          "31400:CAP": 1,
+          "8949:Mark": 1,
+          "83863:Chicken": 1,
+          "36934:Cert": 1,
+          "4133:Post": 1,
+          "1966:sub": 1,
+          "31967:drive": 1,
+          "2121:As": 2,
+          "91510:DEN": 1,
+          "16728:Confirm": 1,
+          "2679:If": 1,
+          "24051:Choose": 1,
+          "3379:Select": 1,
+          "8747:La": 1,
+          "67644:Recommend": 1,
+          "10463:Photo": 1,
+          "4421:---": 1,
+          "40551:Meet": 1,
+          "693:Re": 1,
+          "145299:ðŁĮ¼": 1,
+          "306:ent": 1,
+          "1592:Key": 2,
+          "50799:NÃ£o": 1,
+          "7849:Project": 1,
+          "45974:pressure": 1,
+          "35451:ÐĹ": 6,
+          "22319:Inventory": 1,
+          "91:|": 2,
+          "12187:Pass": 1,
+          "72:i": 2,
+          "66:c": 1,
+          "9461:border": 1,
+          "25150:Spring": 1,
+          "59641:Timeline": 1,
+          "9860:Move": 1,
+          "30092:Sun": 1,
+          "10253:Use": 1,
+          "12753:feature": 2,
+          "103942:å½ĵçĦ¶": 1,
+          "87026:æĤ¨": 1,
+          "7983:While": 1,
+          "24617:Starting": 1,
+          "12209:Then": 5,
+          "19098:sure": 2,
+          "59058:Mes": 1,
+          "78078:Hallo": 1,
+          "72618:Executive": 2,
+          "5835:HTML": 1,
+          "1001:Th": 1,
+          "623:St": 1,
+          "51838:Congratulations": 1,
+          "98781:Cream": 1,
+          "65357:Exactly": 1,
+          "68833:Prec": 1,
+          "2141:size": 1,
+          "65120:\"To": 1,
+          "687:IN": 1,
+          "17053:Week": 1,
+          "2304:Le": 1,
+          "34115:Experience": 1,
+          "27387:Alex": 4,
+          "17229:THE": 2,
+          "3896:first": 1,
+          "13021:Remove": 1,
+          "57193:Detect": 1,
+          "1873:press": 2,
+          "4259:last": 1,
+          "58436:glass": 2,
+          "10033:TEST": 1,
+          "1861:UN": 1,
+          "96736:approximately": 1,
+          "9520:step": 2,
+          "48983:Histor": 1,
+          "40248:Travel": 1,
+          "89428:Abr": 1,
+          "85699:River": 1,
+          "792:key": 2,
+          "19127:beta": 1,
+          "26708:\"If": 1,
+          "38021:OPT": 1,
+          "62130:Merc": 2,
+          "27778:Abs": 3,
+          "1806:Un": 1,
+          "71486:Alright": 1,
+          "19301:market": 1,
+          "89199:\"G": 1,
+          "59860:WHAT": 1,
+          "6582:El": 1,
+          "15:0": 1,
+          "10796:fire": 1,
+          "26957:Following": 1,
+          "16250:Under": 1,
+          "34797:Their": 2,
+          "44915:Pros": 1,
+          "98629:Managing": 2,
+          "8732:Contact": 1,
+          "72007:Monthly": 2,
+          "37:F": 1,
+          "54118:Eu": 1,
+          "69286:VocÃª": 1,
+          "1916:Date": 1,
+          "145712:ðŁĮĻ": 2,
+          "56534:Fant": 1,
+          "74033:Purpose": 1,
+          "9485:These": 1,
+          "1949:Get": 1,
+          "12292:Join": 2,
+          "1359:By": 1,
+          "144388:ì¢ĭ": 1,
+          "29281:ìłķ": 1,
+          "126730:ëĦ¤": 1,
+          "130973:ìĻĦ": 1,
+          "42:K": 2,
+          "1462:Time": 1,
+          "2556:Table": 1,
+          "11095:Mon": 1,
+          "29754:Je": 2,
+          "144232:âľ¨": 3,
+          "13782:Est": 1,
+          "6823:ACT": 1,
+          "28590:Remember": 1,
+          "84423:Mess": 1,
+          "3830:From": 1,
+          "28251:Love": 1,
+          "412:turn": 2,
+          "30404:Regular": 1,
+          "56739:som": 1,
+          "76019:Moon": 1,
+          "2101:Al": 1,
+          "20412:æĺ¯": 1,
+          "27560:Transport": 1,
+          "26445:transport": 2,
+          "36441:sea": 2,
+          "16844:SW": 1,
+          "60512:Materials": 1,
+          "42008:Critical": 1,
+          "29401:CLE": 2,
+          "1649:Set": 1,
+          "19784:sur": 1,
+          "3973:Check": 2,
+          "59528:Seven": 1,
+          "750:def": 1,
+          "10952:---Ċ": 1,
+          "2016:Sh": 1,
+          "776:pro": 1,
+          "1972:Context": 1,
+          "24566:Ben": 3,
+          "12594:Theme": 1,
+          "20705:Her": 1,
+          "28391:Pause": 2,
+          "888:public": 1,
+          "41198:Early": 1,
+          "86555:\"F": 1,
+          "45941:Solid": 1,
+          "90173:Tomorrow": 1,
+          "1043:Data": 1,
+          "19816:Strategy": 1,
+          "11084:Enable": 1,
+          "49:R": 1,
+          "44220:Quant": 1,
+          "84138:Bell": 1
+        },
+        "reasoning_content_raw": {
+          "<EMPTY>": 2521,
+          "1654:We": 545,
+          "785:The": 248,
+          "1474:User": 24,
+          "32313:Okay": 1
+        },
+        "reasoning_content_semantic": {
+          "<EMPTY>": 2521,
+          "1654:We": 545,
+          "785:The": 248,
+          "1474:User": 24,
+          "32313:Okay": 1
+        }
+      },
+      "top": {
+        "content_raw": [
+          {
+            "token": "2610:You",
+            "count": 648,
+            "fraction": 0.1940700808625337
+          },
+          {
+            "token": "77045:Absolutely",
+            "count": 276,
+            "fraction": 0.08265947888589398
+          },
+          {
+            "token": "40:I",
+            "count": 235,
+            "fraction": 0.07038035339922133
+          },
+          {
+            "token": "9454:Yes",
+            "count": 176,
+            "fraction": 0.052710392333033845
+          },
+          {
+            "token": "334:**",
+            "count": 160,
+            "fraction": 0.04791853848457622
+          },
+          {
+            "token": "11908:Oh",
+            "count": 132,
+            "fraction": 0.039532794249775384
+          },
+          {
+            "token": "24765:Ah",
+            "count": 122,
+            "fraction": 0.03653788559448937
+          },
+          {
+            "token": "785:The",
+            "count": 102,
+            "fraction": 0.030548068283917342
+          },
+          {
+            "token": "4792:That",
+            "count": 85,
+            "fraction": 0.025456723569931117
+          },
+          {
+            "token": "2442:<<",
+            "count": 72,
+            "fraction": 0.0215633423180593
+          },
+          {
+            "token": "13060:Thank",
+            "count": 66,
+            "fraction": 0.019766397124887692
+          },
+          {
+            "token": "1986:This",
+            "count": 59,
+            "fraction": 0.01766996106618748
+          },
+          {
+            "token": "2124:Of",
+            "count": 55,
+            "fraction": 0.016471997604073075
+          },
+          {
+            "token": "18665:Hey",
+            "count": 53,
+            "fraction": 0.015873015873015872
+          },
+          {
+            "token": "45:N",
+            "count": 51,
+            "fraction": 0.015274034141958671
+          },
+          {
+            "token": "1:\"",
+            "count": 37,
+            "fraction": 0.011081162024558252
+          },
+          {
+            "token": "39832:Â¡",
+            "count": 36,
+            "fraction": 0.01078167115902965
+          },
+          {
+            "token": "12:-",
+            "count": 33,
+            "fraction": 0.009883198562443846
+          },
+          {
+            "token": "1940:âĢ¦",
+            "count": 28,
+            "fraction": 0.008385744234800839
+          },
+          {
+            "token": "5050:My",
+            "count": 28,
+            "fraction": 0.008385744234800839
+          }
+        ],
+        "content_semantic": [
+          {
+            "token": "2610:You",
+            "count": 648,
+            "fraction": 0.1940700808625337
+          },
+          {
+            "token": "77045:Absolutely",
+            "count": 276,
+            "fraction": 0.08265947888589398
+          },
+          {
+            "token": "40:I",
+            "count": 235,
+            "fraction": 0.07038035339922133
+          },
+          {
+            "token": "9454:Yes",
+            "count": 176,
+            "fraction": 0.052710392333033845
+          },
+          {
+            "token": "334:**",
+            "count": 160,
+            "fraction": 0.04791853848457622
+          },
+          {
+            "token": "11908:Oh",
+            "count": 132,
+            "fraction": 0.039532794249775384
+          },
+          {
+            "token": "24765:Ah",
+            "count": 122,
+            "fraction": 0.03653788559448937
+          },
+          {
+            "token": "785:The",
+            "count": 102,
+            "fraction": 0.030548068283917342
+          },
+          {
+            "token": "4792:That",
+            "count": 85,
+            "fraction": 0.025456723569931117
+          },
+          {
+            "token": "2442:<<",
+            "count": 72,
+            "fraction": 0.0215633423180593
+          },
+          {
+            "token": "13060:Thank",
+            "count": 66,
+            "fraction": 0.019766397124887692
+          },
+          {
+            "token": "1986:This",
+            "count": 59,
+            "fraction": 0.01766996106618748
+          },
+          {
+            "token": "2124:Of",
+            "count": 55,
+            "fraction": 0.016471997604073075
+          },
+          {
+            "token": "18665:Hey",
+            "count": 53,
+            "fraction": 0.015873015873015872
+          },
+          {
+            "token": "45:N",
+            "count": 51,
+            "fraction": 0.015274034141958671
+          },
+          {
+            "token": "1:\"",
+            "count": 37,
+            "fraction": 0.011081162024558252
+          },
+          {
+            "token": "39832:Â¡",
+            "count": 36,
+            "fraction": 0.01078167115902965
+          },
+          {
+            "token": "12:-",
+            "count": 33,
+            "fraction": 0.009883198562443846
+          },
+          {
+            "token": "1940:âĢ¦",
+            "count": 28,
+            "fraction": 0.008385744234800839
+          },
+          {
+            "token": "5050:My",
+            "count": 28,
+            "fraction": 0.008385744234800839
+          }
+        ],
+        "reasoning_content_raw": [
+          {
+            "token": "<EMPTY>",
+            "count": 2521,
+            "fraction": 0.755016471997604
+          },
+          {
+            "token": "1654:We",
+            "count": 545,
+            "fraction": 0.16322252171308774
+          },
+          {
+            "token": "785:The",
+            "count": 248,
+            "fraction": 0.07427373465109315
+          },
+          {
+            "token": "1474:User",
+            "count": 24,
+            "fraction": 0.0071877807726864335
+          },
+          {
+            "token": "32313:Okay",
+            "count": 1,
+            "fraction": 0.0002994908655286014
+          }
+        ],
+        "reasoning_content_semantic": [
+          {
+            "token": "<EMPTY>",
+            "count": 2521,
+            "fraction": 0.755016471997604
+          },
+          {
+            "token": "1654:We",
+            "count": 545,
+            "fraction": 0.16322252171308774
+          },
+          {
+            "token": "785:The",
+            "count": 248,
+            "fraction": 0.07427373465109315
+          },
+          {
+            "token": "1474:User",
+            "count": 24,
+            "fraction": 0.0071877807726864335
+          },
+          {
+            "token": "32313:Okay",
+            "count": 1,
+            "fraction": 0.0002994908655286014
+          }
+        ]
+      }
+    },
+    "agent": {
+      "repo": "nvidia/Nemotron-Agentic-v1",
+      "split": "interactive_agent",
+      "sample_rows": 1000,
+      "target_rows": 335122,
+      "assistant_messages": 3495,
+      "nonempty_content": 2229,
+      "nonempty_reasoning_content": 0,
+      "reasoning_message_fraction": 0.0,
+      "counts": {
+        "content_raw": {
+          "<EMPTY>": 1266,
+          "271:ĊĊ": 2229
+        },
+        "content_semantic": {
+          "<EMPTY>": 1266,
+          "785:The": 71,
+          "40:I": 986,
+          "13060:Thank": 299,
+          "4431:Order": 8,
+          "56389:YOU": 362,
+          "30040:Unfortunately": 17,
+          "16429:Using": 2,
+          "9454:Yes": 40,
+          "9707:Hello": 23,
+          "51041:Perfect": 13,
+          "1249:To": 42,
+          "10061:Let": 9,
+          "12549:Since": 11,
+          "7771:Your": 72,
+          "2610:You": 76,
+          "7981:Our": 2,
+          "10227:Before": 16,
+          "20629:Both": 1,
+          "2461:For": 29,
+          "8420:Here": 16,
+          "334:**": 16,
+          "28715:Based": 31,
+          "54558:Verified": 2,
+          "15216:Good": 4,
+          "2121:As": 2,
+          "39814:Sure": 6,
+          "95456:Certainly": 4,
+          "77045:Absolutely": 2,
+          "21396:Great": 13,
+          "53979:Duplicate": 2,
+          "4792:That": 3,
+          "72513:YOUR": 5,
+          "16:1": 2,
+          "2132:It": 13,
+          "49655:Excellent": 2,
+          "11411:Points": 1,
+          "47948:Confirmed": 2,
+          "2354:With": 1,
+          "14374:###": 2,
+          "33714:Currently": 3,
+          "47441:Cash": 1,
+          "4286:Address": 1,
+          "1:\"": 1,
+          "43:L": 1,
+          "5501:Please": 2,
+          "641:In": 1,
+          "12834:Typ": 2,
+          "22464:Looking": 1,
+          "11190:According": 1,
+          "65357:Exactly": 2,
+          "4498:When": 1,
+          "12895:Could": 1,
+          "84525:Regarding": 1,
+          "1986:This": 1,
+          "38:G": 1
+        },
+        "reasoning_content_raw": {
+          "<EMPTY>": 3495
+        },
+        "reasoning_content_semantic": {
+          "<EMPTY>": 3495
+        }
+      },
+      "top": {
+        "content_raw": [
+          {
+            "token": "271:ĊĊ",
+            "count": 2229,
+            "fraction": 0.6377682403433477
+          },
+          {
+            "token": "<EMPTY>",
+            "count": 1266,
+            "fraction": 0.3622317596566524
+          }
+        ],
+        "content_semantic": [
+          {
+            "token": "<EMPTY>",
+            "count": 1266,
+            "fraction": 0.3622317596566524
+          },
+          {
+            "token": "40:I",
+            "count": 986,
+            "fraction": 0.2821173104434907
+          },
+          {
+            "token": "56389:YOU",
+            "count": 362,
+            "fraction": 0.10357653791130186
+          },
+          {
+            "token": "13060:Thank",
+            "count": 299,
+            "fraction": 0.08555078683834048
+          },
+          {
+            "token": "2610:You",
+            "count": 76,
+            "fraction": 0.021745350500715306
+          },
+          {
+            "token": "7771:Your",
+            "count": 72,
+            "fraction": 0.020600858369098713
+          },
+          {
+            "token": "785:The",
+            "count": 71,
+            "fraction": 0.020314735336194562
+          },
+          {
+            "token": "1249:To",
+            "count": 42,
+            "fraction": 0.01201716738197425
+          },
+          {
+            "token": "9454:Yes",
+            "count": 40,
+            "fraction": 0.011444921316165951
+          },
+          {
+            "token": "28715:Based",
+            "count": 31,
+            "fraction": 0.008869814020028613
+          },
+          {
+            "token": "2461:For",
+            "count": 29,
+            "fraction": 0.008297567954220314
+          },
+          {
+            "token": "9707:Hello",
+            "count": 23,
+            "fraction": 0.006580829756795422
+          },
+          {
+            "token": "30040:Unfortunately",
+            "count": 17,
+            "fraction": 0.004864091559370529
+          },
+          {
+            "token": "10227:Before",
+            "count": 16,
+            "fraction": 0.004577968526466381
+          },
+          {
+            "token": "8420:Here",
+            "count": 16,
+            "fraction": 0.004577968526466381
+          },
+          {
+            "token": "334:**",
+            "count": 16,
+            "fraction": 0.004577968526466381
+          },
+          {
+            "token": "51041:Perfect",
+            "count": 13,
+            "fraction": 0.0037195994277539344
+          },
+          {
+            "token": "21396:Great",
+            "count": 13,
+            "fraction": 0.0037195994277539344
+          },
+          {
+            "token": "2132:It",
+            "count": 13,
+            "fraction": 0.0037195994277539344
+          },
+          {
+            "token": "12549:Since",
+            "count": 11,
+            "fraction": 0.0031473533619456365
+          }
+        ],
+        "reasoning_content_raw": [
+          {
+            "token": "<EMPTY>",
+            "count": 3495,
+            "fraction": 1.0
+          }
+        ],
+        "reasoning_content_semantic": [
+          {
+            "token": "<EMPTY>",
+            "count": 3495,
+            "fraction": 1.0
+          }
+        ]
+      }
+    }
+  }
+}

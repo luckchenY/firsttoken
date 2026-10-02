@@ -25,24 +25,15 @@ DeepSeek-V2-Lite,mmlu_pro,0.41395713282584995,0.15199429230461145,0.401468834121
  |  The |   |  I |  You |  What |  A |  This"
 DeepSeek-V2-Lite,musr,0.31799366970960985,0.08073037584695464,0.39368049269889344,300,"
  |  The |  "" |   |  I |  You |  Detective |  A"
-Mistral-7B-Instruct-v0.3,aime,0.778340822394296,0.5933404644113234,0.23994781103937604,90,"
- | [ | s | The | < | Let | To | $"
-Mistral-7B-Instruct-v0.3,arc,0.9832080241032992,0.7984824165368742,0.17987768866075396,300,"
- | C | [ | B | . | A | D | INST"
-Mistral-7B-Instruct-v0.3,bbeh,0.946928723083965,0.8599422051866831,0.14313102300329816,300,"
- | [ | ( | The | No | AC | A | Yes"
-Mistral-7B-Instruct-v0.3,drop,0.9901299712598906,0.9252455524445611,0.06334200989700789,300,"
- | #### | [ | The | An | 1 | In | M"
-Mistral-7B-Instruct-v0.3,gpqa_diamond,0.9882877671580896,0.9393676717533223,0.07380785241821831,198,"
- | [ | The | s | C | D | B | A"
-Mistral-7B-Instruct-v0.3,logic2,0.9898591961276155,0.9188547832017039,0.09423179470467435,300,"
- | [ | C | A | . | D | B | INST"
-Mistral-7B-Instruct-v0.3,math,0.9577932268731022,0.8986601195153597,0.09472642379465215,300,"
- | [ | Let | First | \ | The | To | '"
-Mistral-7B-Instruct-v0.3,mmlu_pro,0.9803852440102195,0.9240230401932473,0.08302844263342203,300,"
- | [ | The | C | G | D | An | A"
-Mistral-7B-Instruct-v0.3,musr,0.9868464295913607,0.9372277122324832,0.07441813816304897,300,"
- | B | C | [ | A | The | An | </s>"
+Mistral-7B-Instruct-v0.3,aime,0.9139108606294017,0.3649175926887065,0.3503380137702014,90,the | this | a | s | is | let | involves | an
+Mistral-7B-Instruct-v0.3,arc,0.3300806012014741,0.0700666397843236,0.6033048829644772,300,The | the | a |  | It | A | by | They
+Mistral-7B-Instruct-v0.3,bbeh,0.5638187298498094,0.11607329895134254,0.5091298942600795,300,", | ) | the | this | of | ni | there | G"
+Mistral-7B-Instruct-v0.3,drop,0.24082329987722617,0.06310771708987238,0.6249071669807461,300,does | of | touchdown | 2 |  | 1 | field | passage
+Mistral-7B-Instruct-v0.3,gpqa_diamond,0.6405519764098866,0.22577735750340744,0.47502229966506543,198,the | this | answer |  | The | A | of | option
+Mistral-7B-Instruct-v0.3,logic2,0.3900926832484921,0.17987762781581892,0.5849502895670434,300,The | A | It | In | If | X | Some | People
+Mistral-7B-Instruct-v0.3,math,0.8934729461372508,0.5126766020436261,0.29045090903758486,300,the | s | this | let | $ | a | $\ | we
+Mistral-7B-Instruct-v0.3,mmlu_pro,0.497516056223484,0.21841290252461482,0.522566927315793,300,the | this | The | answer |  | s | Yes | In
+Mistral-7B-Instruct-v0.3,musr,0.1454469932609112,0.04306332257327453,0.6902980296561128,300,storage | strengths | desk | personal | the | front | kitchen | instrument
 Phi-3.5-mini-instruct,aime,0.8666034429453704,0.20089876415690316,0.49596176637470163,90,We | Let | The | Since | To | First | There | Note
 Phi-3.5-mini-instruct,arc,0.9999999966650883,0.26081976540325474,0.2995403595304423,300,D | C | B | A | None | To | The | 
 Phi-3.5-mini-instruct,bbeh,0.5207911905506474,0.11746833543726368,0.5463105872511554,300,( |  | To | K | Yes | X | unknown | No
@@ -70,6 +61,15 @@ Qwen3.5-4B,logic2,0.9997236547216279,0.949591787689873,0.059263938897931835,300,
 Qwen3.5-4B,math,0.9997427760435574,0.6782820978320804,0.21146690245084918,300,Here | The | Let | Thinking | We | To | This | Okay
 Qwen3.5-4B,mmlu_pro,0.999937109546628,0.9257956900304305,0.06401968817478079,300,The | Here | Thinking | Let | This | 1 | We | I
 Qwen3.5-4B,musr,0.9998390891555738,0.9086841832419581,0.09427438280388756,300,The | Thinking | Here | This |  The | To | Let | 1
+Qwen3.8-27B,aime,0.9999985982951078,0.9999736359724452,9.445921743163225e-05,90,We | Let | Need | The |  We | Problem | Now | Okay
+Qwen3.8-27B,arc,0.9999662627909218,0.9983296771306319,0.0023560782074016173,300,We | The | Need | Question | User | Thinking | I | Let
+Qwen3.8-27B,bbeh,0.9999567285347245,0.9974650967296331,0.003877484278112171,300,We | Let | Need | The | I | we | This | User
+Qwen3.8-27B,drop,0.9999826410076011,0.9995518265593446,0.0010074504145264705,300,We | The | Need | User | First | I | Let | we
+Qwen3.8-27B,gpqa_diamond,0.9999702872861871,0.9997010045908336,0.0006201546728038088,198,We | Need | Let | The | I | Problem |  We | we
+Qwen3.8-27B,logic2,0.9999591642458089,0.9996369153436682,0.0007685032250269523,300,We | The | Need | User | Let | 我们 | I | 我们需要
+Qwen3.8-27B,math,0.9999912615753096,0.9997612884126488,0.0004736597933352084,300,We | Need | Let | The | User | Problem | Equ |  We
+Qwen3.8-27B,mmlu_pro,0.9999466992348426,0.9994616968822447,0.000942535524051825,300,We | Need | The | User | Let | Question | Problem | I
+Qwen3.8-27B,musr,0.9999202386470323,0.9979706529992888,0.003698837812069816,300,We | Let | Need | I | The | This | User | So
 glm-4-9b-chat,aime,0.7911081160998648,0.320501814774644,0.5081684401226566,90,"To | We | Let | The | First | 
  | Since | ["
 glm-4-9b-chat,arc,0.9986995265597273,0.2599280899385953,0.29690273373340137,300,B | C | A | D | The | To | Answer | **

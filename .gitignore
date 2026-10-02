@@ -134,3 +134,6 @@ logs
 log
 outputs
 .history
+sft_data/
+sft_runs/
+sft_data/

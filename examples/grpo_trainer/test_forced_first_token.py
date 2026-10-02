@@ -128,7 +128,7 @@ def main():
     #   prompt 约 500-1000 token，加 max_tokens=4096，所以 8192 够用
     parser.add_argument("--max-model-len", type=int, default=8192)
     parser.add_argument("--tp", type=int, default=1)
-    parser.add_argument("--gpu-mem-util", type=float, default=0.5)
+    parser.add_argument("--gpu-mem-util", type=float, default=0.9)
     parser.add_argument("--save-data", type=str, default=None,
                         help="Save router training data to this file (.pt)")
     parser.add_argument("--rerollout-all", action="store_true", default=True,

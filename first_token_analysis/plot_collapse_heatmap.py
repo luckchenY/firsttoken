@@ -80,7 +80,7 @@ def build_prompts(parquet_path, tokenizer, num_prompts):
     for _, row in df.iterrows():
         msgs = parse_messages(row["prompt"])
         prompts.append(
-            tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
+            tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, enable_thinking=True)
         )
     return prompts
 
@@ -222,6 +222,7 @@ def scan(args, cache_path):
             max_model_len=args.max_model_len,
             trust_remote_code=True,
             dtype=args.dtype,
+            max_num_seqs=32,
         )
         sampling_params = SamplingParams(
             temperature=args.temperature,
@@ -299,6 +300,13 @@ def _cell_text(v, fmt, vmin, vmax, cmap_invert):
     return txt, color
 
 
+def _cell_label(results, m, b):
+    """Return the top-1 token string for cell (model, benchmark), or ''."""
+    r = results.get((m, b), {})
+    toks = r.get("top_tokens", [])
+    return toks[0] if toks else ""
+
+
 def plot_single_heatmap(results, model_labels, bench_labels, metric, top_k, out_path):
     """Render a benchmark (rows) x model (columns) heatmap for one metric.
 
@@ -335,7 +343,12 @@ def plot_single_heatmap(results, model_labels, bench_labels, metric, top_k, out_
     for i in range(M):
         for j in range(B):
             txt, color = _cell_text(mat[i, j], meta["fmt"], meta["vmin"], meta["vmax"], meta["invert"])
-            ax.text(j, i, txt, ha="center", va="center", fontsize=9, color=color)
+            label = _cell_label(results, model_labels[i], bench_labels[j])
+            if label:
+                cell_text = f"{txt}\n{label!r}"
+            else:
+                cell_text = txt
+            ax.text(j, i, cell_text, ha="center", va="center", fontsize=8, color=color)
     cbar = fig.colorbar(im, ax=ax, shrink=0.85)
     cbar.set_label(meta["title"], rotation=90)
     ax.set_title(f"首 token 坍塌: {meta['title']}", pad=12)
@@ -366,7 +379,12 @@ def plot_combined_heatmap(results, model_labels, bench_labels, top_k, out_path):
         for i in range(M):
             for j in range(B):
                 txt, color = _cell_text(mat[i, j], fmt, vmin, vmax, invert)
-                ax.text(j, i, txt, ha="center", va="center", fontsize=8, color=color)
+                label = _cell_label(results, model_labels[i], bench_labels[j])
+                if label:
+                    cell_text = f"{txt}\n{label!r}"
+                else:
+                    cell_text = txt
+                ax.text(j, i, cell_text, ha="center", va="center", fontsize=7, color=color)
         fig.colorbar(im, ax=ax, shrink=0.8)
     fig.suptitle("首 token 坍塌: model × benchmark", fontsize=14, fontweight="bold", y=1.02)
     fig.tight_layout()

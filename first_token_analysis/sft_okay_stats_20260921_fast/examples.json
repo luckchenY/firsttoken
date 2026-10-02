@@ -1,0 +1,302 @@
+[
+  {
+    "source": "math_proofs",
+    "split": "lean",
+    "row_index": 176,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "Problem",
+    "word_position": 2780,
+    "snippet": "or \\(e = 1\\), it becomes \\(-\\frac{1}{2} + \\frac{1}{4} + d \\leq 0 \\implies d \\leq \\frac{1}{4}\\). But if \\(a + b + c + d + e = 1\\) and \\(e = 1\\), then \\(a = b = c = d = 0\\), so it's okay. \\n\\nBut for \\(e = \\frac{1}{2}\\), we have \\(-\\frac{1}{4} + \\frac{1}{16} + \\frac{d}{2} \\leq 0 \\implies \\frac{d}{2} \\leq \\frac{3}{16} \\implies d \\leq \\frac{3}{8}\\). But if \\(a + b + c + d = \\frac{1}{2}\\), it's possible that \\(d > \\frac{3}{8}\\) (e.g., \\(a = b = c "
+  },
+  {
+    "source": "math_proofs",
+    "split": "lean",
+    "row_index": 263,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "Error",
+    "word_position": 2456,
+    "snippet": " can check a specific case. Let `n = 0`, `θ = 0`:\\n- `R_0 = -1 + 1 * 1 - 0 = 0`\\n- `R_1 = -1 + 2 * 1 - 1 * 1 = 0`\\n- `2(1 - cos θ)(n + 1) cos((n + 1)θ) = 0`\\nThen `R_0 + 0 = 0 = R_1` (okay).\\n\\nBut `n = 1`, `θ = 0`:\\n- `R_1 = -1 + 2 * 1 - 1 * 1 = 0`\\n- `R_2 = -1 + 3 * 1 - 2 * 1 = 0`\\n- `2(1 - cos θ)(n + 1) cos((n + 1)θ) = 0`\\nThen `R_1 + 0 = 0 = R_2` (okay).\\n\\n`n = 0`, `θ = π`:\\n- `R_0 = 0`\\n- `R_1 = -1 + 2 * (-1) - 1 * 1 = -4`\\n- `2(1 - cos θ)(n + 1) co"
+  },
+  {
+    "source": "math_proofs",
+    "split": "lean",
+    "row_index": 275,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "The",
+    "word_position": 765,
+    "snippet": ", not for `x ≤ 0`. \\n\\nThus, the approach of equating `(fun x => x ^ (1 / x))` and `(fun x => exp (log x / x))` is incorrect because they are not equal everywhere. But perhaps it is okay because we are only interested in the derivative at `n > 0`, and in a neighborhood of `n`, the two functions are equal (since for `x > 0`, they are equal).\\n\\nBut perhaps the problem is that the proof uses `h₃ : (fun x : ℝ => x ^ (1 / x)) = (fun x : ℝ => Real.e"
+  },
+  {
+    "source": "math_proofs",
+    "split": "lean",
+    "row_index": 311,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "The",
+    "word_position": 2438,
+    "snippet": "n't know if `U ≥ T - 1`. \\n\\n   However, perhaps we can prove `U ≥ T - 1`, i.e., `(2∑a²)/(∑ab) + 1 ≥ ∑ (b² + c²)/(a(b + c))`.\\n\\n   But when `a = b = c = 1`, LHS = 2 + 1 = 3, RHS = 3, okay. For `a = 1, b = 1, c = 0.5`, LHS ≈ 2.25 + 1 = 3.25, RHS ≈ 3.075, so it holds.\\n\\n   Maybe it's always true? \\n\\n   Let me try to prove it:\\n\\n   We want:\\n   ```\\n   (2∑a²)/(∑ab) + 1 ≥ ∑ (b² + c²)/(a(b + c)).\\n   ```\\n\\n   Multiply through by `(∑ab) * ∏ a(b + c)` (posi"
+  },
+  {
+    "source": "math_proofs",
+    "split": "lean",
+    "row_index": 353,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "Understanding",
+    "word_position": 1035,
+    "snippet": " `R 0 1`, `R 1 2` → `R 0 2` holds → violates intransitivity.\\n     - No good.\\n\\n   - Another attempt: `α = Fin 3`, `R = {(0,1), (1,2), (0,0)}`:\\n     - `R 0 1`, `R 1 2` → no `R 0 2`, okay.\\n     - `R 0 0`, `R 0 1` → no `R 0 1`? No: `R 0 0` and `R 0 1`, but `R 0 1` holds, but intransitivity requires that if `R x y` and `R y z`, then `¬ R x z`. Here `x = 0`, `y = 0`, `z = 1`, `R 0 0`, `R 0 1`, and `R 0 1` holds, which would violate intransitivity"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 0,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 4963,
+    "snippet": "te terms.\\n\\nFirst, x^4 term: both sides have 2 x^4. OK.\\n\\nx^3 term: LHS coefficient: 4 (d + t) = 4 (d + (d-1)) = 4(2d -1) = 4u? Since u =2d-1, indeed LHS coeff = 4u. RHS coeff = 4u. Okay.\\n\\nThus x^3 term matches automatically for any d.\\n\\nNow x^2 term: LHS coeff = 6 (d^2 + t^2) = 6( d^2 + (d-1)^2 ) = 6 (d^2 + d^2 -2d +1) = 6 (2 d^2 - 2 d + 1) = 12 d^2 - 12 d + 6.\\n\\nRHS coeff = 2 (u^2 + 2 d^2) = 2( (2d-1)^2 + 2 d^2 ) = 2 ( (4 d^2 -4d +1) + 2 d^2 "
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 2,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 4145,
+    "snippet": "evious. So p x + p + x = (p+1)x + p. But we also have - (x+1) ln(x+1) - (2 ln2 -1). So f(x) = (p+1)x + p - (x+1) ln(x+1) - 2 ln2 + 1. Finally adding p? Wait we have p inside maybe okay. Actually f(x) = (p+1)x + p + 1 - (x+1) ln(x+1) - 2 ln2? Because we have p(x+1) = p x + p, plus x gives (p+1)x + p. Then we have - (2 ln2 -1) = -2 ln2 + 1. So combine constant terms: p + 1 - 2 ln2. So f(x) = (p+1)x + (p + 1 - 2 ln2) - (x+1) ln(x+1). So f(x) ="
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 3,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 1803,
+    "snippet": "s at least 2. So some c_k may be 0 or maybe skip 0. Let's find possibilities.\\n\\nDefine N=200 terms from k=2,...,201. Let them be t_1,...,t_N where t_i = c_{i+1}? Actually shift but okay. So t_1 < t_2 < ... < t_N are integers, and sum t_i =0.\\n\\nWe also have a relation between successive differences t_{i+1} - t_i = 2d_{i+1}? Wait mapping: t_i = c_{i+1} for i=1..N. Then t_{i+1} - t_i = c_{i+2} - c_{i+1} = 2d_{i+1} (since c_{i+2} = c_{i+1} + 2d_{"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 4,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 1114,
+    "snippet": ". So only S1 is valid.\\n\\nThus candidate S = (11 + 4 sqrt7)/3 ≈ 7.1943.\\n\\nWe'll check later to ensure the positivity of parentheses (which we already used to enforce S > 1). So S1 is okay.\\n\\nCase B: u = -10/7 < -1 (approx -1.42857). Solve S + 1/S = -10/7.\\n\\nMultiply by S: S^2 +1 = -(10/7) S => multiply both sides by 7: 7 S^2 + 7 = -10 S => bring all to left: 7 S^2 + 10 S + 7 = 0.\\n\\nCompute discriminant: Δ = 10^2 - 4*7*7 = 100 - 196 = -96 < 0. No "
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 7,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 4839,
+    "snippet": ", the radius bigger than distance from center to chord. The y-coordinate of chord line is 0; distance from center to chord is |k|. Then radius r must be larger, so r > |k|. That's okay. If k is positive but less than r, the chord AB is below the center. In our case, r = H - k > k if H > 2k. Not necessarily. But we can find numeric later.\\n\\nThus the interior of the circle is above AB? If k > 0, the circle's center is above AB, and radius > k,"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 9,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 2323,
+    "snippet": "dues modulo 9 cannot be expressed as sum of two squares. For instance 3,6. Indeed 2003 mod9 =? Let's compute: 9*222 = 1998; remainder 5. So 5 is representable (we have 5). So mod9 okay.\\n\\nBut e.g., if n contains factor 9, must 2003 mod9 be in set {0,1,2,4,5,7,8}. Indeed 5 is in set, so possible. So if p=3, any k≥2? Let's examine modulo 27 maybe.\\n\\nCompute sum-of-two-squares residues modulo 27. This is more complicated. Let's test whether ther"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 12,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 1862,
+    "snippet": " Actually 96 = 32*3, v2 is 5. Indeed n=2 yields n+v2(5^2-1) = 2 + v2(25-1=24) = 2+v2(24) = 2+3 =5. So matches. Good.\\n\\nNow check n=0 would not be considered as positive integer. So okay.\\n\\nNow for n even and large t, we have v2(5^n-1) = v2(n) +2. So total v2(10^n -2^n) = n + v2(n) +2.\\n\\nCheck n=58: v2(58) =1 => v2 total = 58+1+2=61 <64. So good.\\n\\nNow check n=60: v2(60) =2 => total = 60+2+2=64 => exactly 64, so divisible by 2^64. Indeed n=60 fa"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 13,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 2324,
+    "snippet": "̃(z) = (z-1)/n is a polynomial? Since (z-1)/n = (1/n)z - (1/n). That's a polynomial (degree 1) albeit rational coefficients. Actually it's a polynomial with rational coefficients, okay. So q(z) = (z-1)/n works. But we need to consider that original p(z) is of degree more than 1 (n+1?), but modulo (z^n - 1) we simplified. So the inverse matrix C^{-1} is indeed a circulant with generating coefficients given by the coefficients of q(z) = (z - "
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 14,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 6259,
+    "snippet": "s an even sized set? Actually if set size is even 6, can the center be a point in the set? For central symmetry, the point at the center must map to itself under half-turn; that's okay: the center as a point can be in the set. In an even sized set, can we have center as a point? If it is a point, it would only account for one element, leaving odd number of remaining points, which must be paired, ultimately making total size odd (point + eve"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 16,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 5651,
+    "snippet": "k} U_i - V_i U_{i+k} = -2 Q^{i} U_{k}.\\n\\nThus rearranging: V_{i+k} U_i = V_i U_{i+k} - 2 Q^i U_k.\\n\\nHence V_{i+k} U_i = V_i U_{i+k} - 2 (-1)^i C_k.\\n\\nNow sum over i from some range.\\n\\nOkay.\\n\\nOur sum T = Σ_{i=1}^{2022} C_i V_{i+2022} = Σ_{i=1}^N U_i V_{i+L}.\\n\\nThus using identity:\\n\\nU_i V_{i+L} = V_i U_{i+L} - 2 Q^{i} U_{L}.\\n\\nSince Q = -1, Q^i = (-1)^i. U_L = C_L.\\n\\nThus T = Σ_{i=1}^{N} (V_i U_{i+L} - 2 (-1)^i C_L) = Σ (V_i U_{i+L}) - 2 C_L * Σ (-1"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 17,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 1136,
+    "snippet": "s y approaches 1 from below: fraction -> 1/2, log2 -> -1, but not less because it's strictly < 1/2 yields < -1. At y -> 1- epsilon, fraction a bit less than 0.5, log2 < -1. So far okay. At y=1 exactly, fraction = 1/2 → log2 = -1, not < -1; inequality strict, so y ≠1. At y=0, fraction =0 => undefined? Actually log(0) is -∞, domain requires >0. And limit y->0+ yields fraction->0+, log-> -∞, okay. y can be arbitrarily close to 0 but positive. "
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 19,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 4071,
+    "snippet": " sum? Not relevant. But compute approximate: √2≈1.4142. tan α ≈ 1.4142/3≈0.4714 -> α≈ arctan(0.4714) ≈ 25.3°, yep. tan β ≈ 5*1.4142/7 ≈ 7.071/7≈1.0101=> β≈ arctan(1.0101) ≈ 45.3°, okay.\\n\\nThus answer: tangents are √2/3 and 5√2/7. Or maybe they want a pair that satisfy something else. Check if ratio of tangents equals something like 5/?? Let's compute ratio tanβ/tanα = (5√2/7)/(√2/3)= (5/7)*(3/1) = 15/7 ≈2.1429. Not obviously 3/5. Might be re"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 22,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 614,
+    "snippet": ". Or the function might equal exactly +/-1/2 at some points? The condition is >= 1/2. Usually inequality used is greater than or equal. So if it's exactly 1/2 at some point that's okay. So we need the minimum of h if we think of it as having one sign.\\n\\nBut suppose we attempt to find a such that h(θ) stays always >= 1/2. That would require that the minimum of the function h (i.e., its minimum value across θ) is >= 1/2. Similarly for the case"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 23,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 1793,
+    "snippet": ")^b = -1 + b -1 = b - 2. So b-2 ∈ {1,-1}. Solve:\\n\\nIf (-1)^b = 1 => b even => b-2 = 1 => b=3, but b even? 3 odd, contradiction.\\n\\nIf (-1)^b = -1 => b odd => b-2 = -1 => b = 1 -> odd okay. So b=1 works. Indeed (a,b)=(-1,1) works (a any integer for b=1). So all a with b=1 works.\\n\\nCase a = 0: Let's see b negative? a^b = 0^b undefined if b ≤ 0. For positive b, we consider a^b = 0 = a + b - 1 = 0 + b - 1 = b - 1 => b = 1. For b=1, a^b =0^1 = 0; a+"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 27,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 744,
+    "snippet": " of signs, but the equation X = a^2 -2ab +2b^2 =1 with negative b may also hold? Let's verify: for a = -1, b = -1: a^2 - 2ab = 1 - 2* (-1)(-1) = 1 - 2 = -1, plus 2b^2=2 => -1+2=1, okay.\\n\\nThus both (1,1) and (-1,-1) are solutions.\\n\\nBut note that if we allow a and b to have opposite signs? b = 1, a = -? Let's test other possibilities.\\n\\nSuppose b = 1, else solving discriminant requirement: D=4(1-b^2) => b^2 <=1 => b=0 or ±1. Also b = -1 gives "
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 28,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 6754,
+    "snippet": " k n(n+1)/2 must be integer. So we need k n(n+1) even for all n. Since k integer, and n(n+1) always even (product of two consecutive integers). So k n(n+1)/2 is integer always. So okay.\\n\\nThus n divides S_n if and only if n divides sum_{i=1}^n ceil(i/q) modulo n (since k part is multiple of n). More precisely: S_n = n * k (n+1)/2 + sum_{i=1}^n ceil(i/q). So S_n mod n ≡ sum_{i=1}^n ceil(i/q) (mod n). Because first term ≡0 (mod n). So conditio"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 29,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 1947,
+    "snippet": "f the key holder goes to later car B, then the non-key must also go B. If key goes to early car A, the non-key can go either A or B.\\n\\nFor the single-person key, if they go B, it's okay (they are alone, no condition violation). If they go A, also fine.\\n\\nFor the 3-person room: similar: if key K_3 is in B, then both non-keys must be in B. If K_3 in A, then the two non-keys can be in A or B arbitrarily.\\n\\nThus to satisfy all constraints, the ass"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 30,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 15178,
+    "snippet": " is same). The phrase \"Given that |z1| =1\" does not restrict to real; but often such problems consider complex numbers. However, typical notation |z| for complex absolute value is okay, and for real numbers also absolute value.\\n\\nBut have we exhausted possibilities? The real case yields answer 27. The complex case yields infinite possible values. So maybe the intended answer is 27.\\n\\nThus maybe they expect answer 27. Indeed if one uses triang"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 32,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 11740,
+    "snippet": "=0 gives condition 0 - b + c =0 => c = b => c=b violates distinctness (c=b). So no.\\n\\nB5 with B3: a=0 -> b - c =0 => b=c violation.\\n\\nB5 with B6: a=0 = b + c => b = -c, distinctness okay (if b = -c, a=0, distinct if b ≠ 0). So B5 and B6 possible: a=0, b = -c.\\n\\nThus we can satisfy at most two B edges by proper selection: one of the zero-variable edges and one of the linear ones, provided they are compatible and produce distinct values.\\n\\nThus w"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 34,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 3356,
+    "snippet": "uence, the actual pattern of dots and dashes is determined by the letters. So there could be different strings of letters produce the same 12-length symbol sequence? That would be okay, but the question might be: \"In how many ways can that word be read?\" means how many possible interpretations can be made from the given transmitted signal? So it's per particular transmitted code. Equivalent to the number of possible ways to split the given "
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 35,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 5481,
+    "snippet": " 922=17984\\nAdd 926=18910\\nAdd 982=19892\\n\\nThus sum = 19,892 (as we earlier computed). Confirm final sum = 19,892. Mod 1000 = 892. Yes matches.\\n\\nThus p=2 contributions sum = 19,892.\\n\\nOkay.\\n\\nNow we need to enumerate p=3 similarly.\\n\\n**p=3**.\\n\\nWe have q primes from 37 to 331 (primes >3). List of primes >=37 up to 331.\\n\\nLet's get the list of primes from earlier list, filter out those less than 37.\\n\\nList all primes up to 331:\\n\\n2,3,5,7,11,13,17,19,2"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 38,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 4047,
+    "snippet": "et matches.\\n\\nNow confirm the condition p >=5 is satisfied; all are indeed >=5.\\n\\nThus answer: p ∈ {5,7,11,13,17,29,41}.\\n\\nBut also note that p=5 appears twice: from N=20 factor, but okay.\\n\\nOne may verify solutions for each p as we have.\\n\\nThus answer is:\\n\\n\\boxed{5,\\,7,\\,11,\\,13,\\,17,\\,29,\\,41}\\n\\nCheck if any missing, like p=2? Not allowed. p=3 is not allowed by condition.\\n\\nThus answer.\\n\\nNow maybe we need to consider p=2? But problem says p a pr"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 44,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 997,
+    "snippet": "only once, we need for each color an arc with at least 2 points, where that color appears at least half of the points on that arc. For arcs of exactly 2 points, it's half. So it's okay.\\n\\nBut we need to check whether for each point we can find an arc containing exactly two points that includes that point, i.e., the point itself and some other point, such that those are the only points on that arc. This is possible only if the points are sort"
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 46,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 562,
+    "snippet": " = x^2. So 3 P(x)+P(-x) = 3x^2 + x^2 = 4x^2. Multiply by x => 4x^3. So left = x^4 + 4 x^3. Right: (P(x))^2 + 2x^2 = (x^2)^2 + 2 x^2 = x^4 + 2 x^2. So left has extra 4x^3 term, not okay. So not.\\n\\nTry P(x)=x^k? For k>=2. Let's test P(x)=x^n monic; maybe only n=1 works. But we should verify for n=0 constant solutions too.\\n\\nCheck P(x)=0 constant? P(x) = c.\\n\\nPlug constant c. Then left: P(x^2) = c. + x (3c + c) = x*4c = 4c x. Right: (P(x))^2 + 2 "
+  },
+  {
+    "source": "math",
+    "split": "high_part00",
+    "row_index": 47,
+    "message_index": 1,
+    "field": "reasoning",
+    "first_word": "We",
+    "word_position": 4792,
+    "snippet": "2^m where m <= 31, there is at least one representation (n=2,m=m). There may also be representation n=k,m=1 (if k<1000). For m> ? k=2^31 is roughly 2 billion, so n=2,m=31: n<1000, okay, x=m^n=31^2=961 (<1000). So that solution satisfies constraints: n=2,m=31 => x=961 (<1000). So for k=2^31 (approx 2 billion), there is a solution. Also representation n=k,m=1 yields n = 2^31, which is >1000 (since 2^31 approx 2 billion), so fails n <1000 requ"
+  }
+]

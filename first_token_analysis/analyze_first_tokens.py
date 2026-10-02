@@ -39,7 +39,7 @@ def main():
     parser.add_argument("--temperature", type=float, default=0.6)
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--tp", type=int, default=1)
-    parser.add_argument("--gpu-mem-util", type=float, default=0.5)
+    parser.add_argument("--gpu-mem-util", type=float, default=0.9)
     parser.add_argument("--max-model-len", type=int, default=4096)
     parser.add_argument("--skip-tokens", type=int, default=2,
                         help="Skip this many leading tokens, analyze logprobs at this position "
@@ -53,21 +53,32 @@ def main():
     print(f"  eos_token: {tokenizer.eos_token!r} (id={tokenizer.eos_token_id})")
     print(f"  pad_token: {tokenizer.pad_token!r} (id={tokenizer.pad_token_id})")
 
-    # Load data
-    dfs = [pd.read_parquet(p) for p in args.data]
-    df = pd.concat(dfs, ignore_index=True)
-    if len(df) > args.num_prompts:
-        df = df.sample(n=args.num_prompts, random_state=42).reset_index(drop=True)
-    print(f"Loaded {len(df)} prompts")
-
-    # Build prompt text via chat template
+    # Load data — support both .parquet (messages) and .pt (pre-formatted text)
     prompts_text = []
-    for _, row in df.iterrows():
-        messages = parse_messages(row["prompt"])
-        text = tokenizer.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True
-        )
-        prompts_text.append(text)
+    for path in args.data:
+        if path.endswith(".pt"):
+            import torch
+            data = torch.load(path, map_location="cpu", weights_only=False)
+            if isinstance(data, dict) and "prompts_text" in data:
+                prompts_text.extend(data["prompts_text"])
+            else:
+                raise SystemExit(f"Expected 'prompts_text' key in .pt file: {path}")
+        else:
+            df = pd.read_parquet(path)
+            for _, row in df.iterrows():
+                messages = parse_messages(row["prompt"])
+                text = tokenizer.apply_chat_template(
+                    messages, tokenize=False, add_generation_prompt=True,
+                    enable_thinking=True,
+                )
+                prompts_text.append(text)
+
+    if len(prompts_text) > args.num_prompts:
+        import random
+        random.seed(42)
+        idx = random.sample(range(len(prompts_text)), args.num_prompts)
+        prompts_text = [prompts_text[i] for i in idx]
+    print(f"Loaded {len(prompts_text)} prompts")
 
     # DEBUG: print first 2 prompts to verify format
     print(f"\n{'='*70}")
@@ -87,6 +98,7 @@ def main():
         gpu_memory_utilization=args.gpu_mem_util,
         max_model_len=args.max_model_len,
         trust_remote_code=True,
+        max_num_seqs=32
     )
 
     sampling_params = SamplingParams(
